@@ -1,46 +1,164 @@
-# PawQRS - Gestor de PQRS
+<div align="center">
 
-![Logo de PawQRS](images/logo_pawqrs.png)
+# 🐾 PawQRS
 
-Proyecto integrador de **Algoritmia y Programación 2026-2** orientado al desarrollo de un gestor de Peticiones, Quejas, Reclamos y Sugerencias (PQRS) relacionadas con la atención de perros y gatos.
+### Gestor de Peticiones, Quejas, Reclamos y Sugerencias
+
+<img src="images/logo_pawqrs.png" alt="Logo PawQRS" width="350">
+
+**Proyecto Integrador · Algoritmia y Programación 2026-2**  
+**Universidad de Antioquia · Ingeniería Industrial**
+
+<br>
+
+**Gestión clara · Seguimiento oportuno · Información organizada**
+
+</div>
+
+---
+
+## PawQRS en cifras
+
+| 👥 Equipo | 📄 Tipos de PQRS | ⏱️ Tiempo máximo de respuesta | 💻 Tecnología |
+|:---:|:---:|:---:|:---:|
+| **5 integrantes** | **4 tipos** | **30 días** | **Python** |
+| Ingeniería Industrial | P · Q · R · S | Días calendario | Archivos planos |
+
+---
+
+## Sobre el proyecto
+
+**PawQRS** es un sistema desarrollado para apoyar la gestión de Peticiones, Quejas, Reclamos y Sugerencias relacionadas con la atención de perros y gatos.
+
+El sistema permitirá registrar, organizar, consultar y hacer seguimiento a las solicitudes recibidas por MEPEGA, facilitando el control de los radicados, los estados de las solicitudes y las fechas máximas de respuesta.
+
+---
+
+## Contenido
+
+| Sección | Contenido |
+|---|---|
+| 👥 **01. Equipo** | Integrantes, formación y fortalezas |
+| 🐾 **02. Proyecto** | Nombre, descripción e identidad |
+| 📜 **03. Licencia** | Licenciamiento del proyecto |
+| 🎯 **04. Visión** | Problemática, objetivos y beneficios |
+| ⚙️ **05. Requisitos** | Requisitos funcionales, no funcionales y validaciones |
+| 📅 **06. Plan del proyecto** | Actividades, Gantt y presupuesto |
+| 📄 **07. Documentación** | Actas y soportes |
 
 ---
 
 ## 1. Integrantes
 
-El equipo de trabajo está conformado por cinco estudiantes del programa de Ingeniería Industrial de la Universidad de Antioquia.
+<table>
+<tr>
+<td width="50%">
 
-### Estefania Jiménez Jaramillo
-- **Rol:** Líder del equipo / Gestión de GitHub
-- **Programa:** Ingeniería Industrial
-- **Semestre:** Cuarto semestre
-- **Correo:** estefania.jimenezj@udea.edu.co
+### 👩‍💻 Estefania Jiménez Jaramillo
+**Rol:** Líder del proyecto · Gestión de GitHub
 
-### Santiago Franco Lopez
-- **Programa:** Ingeniería Industrial
-- **Semestre:** Séptimo semestre
-- **Correo:** santiago.franco6@udea.edu.co
+Ingeniería Industrial · 4.º semestre
 
-### Isabela Maria Rodríguez Ramos
-- **Programa:** Ingeniería Industrial
-- **Semestre:** Quinto semestre
-- **Correo:** isabela.rodriguez1@udea.edu.co
+**Correo**  
+estefania.jimenezj@udea.edu.co
 
-### Daniela Zapata Henao
-- **Programa:** Ingeniería Industrial
-- **Semestre:** Tercer semestre
-- **Correo:** daniela.zapatah@udea.edu.co
+**Funciones**  
+Coordinación general del equipo · Gestión del repositorio · Seguimiento de entregas · Integración de módulos
 
-### María Camila Ocampo Rúa
-- **Programa:** Ingeniería Industrial
-- **Semestre:** Cuarto semestre
-- **Correo:** mcamila.ocampo@udea.edu.co
+**Fortalezas**  
+Trabajo en equipo · Comunicación asertiva · Adaptabilidad
+
+</td>
+
+<td width="50%">
+
+### 👨‍💻 Santiago Franco Lopez
+**Rol:** Gestión de archivos · Seguimiento de PQRS
+
+Ingeniería Industrial · 7.º semestre
+
+**Correo**  
+santiago.franco6@udea.edu.co
+
+**Funciones**  
+Lectura y escritura de archivos planos · Consulta de registros · Actualización de estados · Apoyo en `archivos.py`
+
+**Fortalezas**  
+Responsabilidad · Trabajo en equipo · Puntualidad · Pensamiento crítico
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+### 👩‍💻 Isabela Maria Rodríguez Ramos
+**Rol:** Interfaz · Comprobante de radicación
+
+Ingeniería Industrial · 5.º semestre
+
+**Correo**  
+isabela.rodriguez1@udea.edu.co
+
+**Funciones**  
+Diseño del menú de consola · Experiencia de uso · Presentación del comprobante de radicación en formato ASCII
+
+**Fortalezas**  
+Creatividad · Determinación · Perseverancia
+
+</td>
+
+<td>
+
+### 👩‍💻 Daniela Zapata Henao
+**Rol:** Validaciones · Calidad de datos
+
+Ingeniería Industrial · 3.º semestre
+
+**Correo**  
+daniela.zapatah@udea.edu.co
+
+**Funciones**  
+Desarrollo y revisión de validaciones · Control de calidad de los datos · Pruebas de ingreso de información · Apoyo en `validaciones.py`
+
+**Fortalezas**  
+Constancia · Creatividad · Responsabilidad · Organización
+
+</td>
+</tr>
+
+<tr>
+<td colspan="2" align="center">
+
+### 👩‍💻 María Camila Ocampo Rúa
+**Rol:** Reportes · Estadísticas
+
+Ingeniería Industrial · 4.º semestre
+
+**Correo**  
+mcamila.ocampo@udea.edu.co
+
+**Funciones**  
+Desarrollo de estadísticas de gestión · Apoyo en `reportes.py` · Análisis y documentación de resultados
+
+**Fortalezas**  
+Compromiso · Comunicación asertiva · Trabajo en equipo
+
+</td>
+</tr>
+</table>
+
+> **Nota:** Los roles corresponden a responsabilidades principales dentro del proyecto. Todos los integrantes participarán en el desarrollo, revisión, pruebas y comprensión general del código de PawQRS.
 
 ---
 
 ## 2. Vínculos académicos y descripción
 
-Todos los integrantes del equipo pertenecen al programa de **Ingeniería Industrial de la Universidad de Antioquia**.
+Todos los integrantes de **PawQRS** pertenecen al programa de **Ingeniería Industrial de la Universidad de Antioquia** y se encuentran en diferentes niveles de formación académica, lo que permite integrar distintas experiencias, habilidades y perspectivas durante el desarrollo del proyecto.
+
+El equipo reúne fortalezas relacionadas con el **trabajo colaborativo, la comunicación asertiva, la creatividad, la responsabilidad, la organización, la adaptabilidad, la perseverancia y el pensamiento crítico**.
+
+Estas capacidades se complementan con los roles definidos para cada integrante, permitiendo distribuir las responsabilidades del proyecto de acuerdo con las diferentes etapas de planeación, desarrollo, validación, documentación y seguimiento.
 
 ### Estefania Jiménez Jaramillo
 Se caracteriza por su capacidad para el **trabajo en equipo, la comunicación asertiva y la adaptabilidad**, habilidades que le permiten coordinar actividades, mantener una comunicación clara con los integrantes y responder adecuadamente a los cambios y necesidades del proyecto.
@@ -61,13 +179,19 @@ Se caracteriza por su **compromiso, comunicación asertiva y capacidad para trab
 
 ## 3. Nombre del proyecto y detalles
 
-### PawQRS
+### PawQRS - Gestor de PQRS
 
 **PawQRS** es un sistema de gestión de Peticiones, Quejas, Reclamos y Sugerencias (PQRS) orientado al registro y seguimiento de solicitudes relacionadas con la atención de perros y gatos.
 
 El proyecto busca facilitar la gestión de la información recibida por MEPEGA, permitiendo organizar los datos de los solicitantes, registrar las PQRS, realizar su seguimiento y consultar información relevante para apoyar su gestión.
 
 El sistema será desarrollado en **Python** y permitirá almacenar la información mediante archivos planos, siguiendo los requerimientos establecidos para el proyecto.
+
+El nombre **PawQRS** combina la palabra inglesa *paw* —pata— con las siglas **PQRS**, representando de forma directa la finalidad del proyecto.
+
+<p align="center">
+  <img src="images/logo_pawqrs.png" alt="Logo PawQRS" width="280">
+</p>
 
 ---
 
@@ -129,6 +253,14 @@ Desarrollar **PawQRS**, un sistema de consola en Python que permita gestionar de
 ---
 
 ## 6. Especificación de requisitos
+
+### Resumen de requisitos
+
+| Categoría | Cantidad | Descripción |
+|---|:---:|---|
+| Requisitos funcionales | **14** | Funciones y operaciones principales de PawQRS |
+| Requisitos no funcionales | **9** | Condiciones de calidad y funcionamiento |
+| Reglas de validación | **17** | Criterios para el control de los datos ingresados |
 
 ### 6.1 Requisitos funcionales
 
@@ -283,6 +415,9 @@ La primera entrega se realizará el **18 de septiembre de 2026**, correspondient
 | Preparación de sustentación |  |  |  |  |  |  |  |  |  |  |  | X | X |
 | **Sustentación** |  |  |  |  |  |  |  |  |  |  |  |  | **X** |
 
+📎 **Archivo editable del cronograma y Diagrama de Gantt:**  
+[`Cronograma_Gantt_PawQRS.xlsx`](docs/Cronograma_Gantt_PawQRS.xlsx)
+
 ### 7.3 Presupuesto del proyecto
 
 El desarrollo de **PawQRS** contempla una dedicación total de **50 horas de trabajo** por parte del equipo, distribuidas entre sus cinco integrantes.
@@ -299,3 +434,22 @@ El desarrollo de **PawQRS** contempla una dedicación total de **50 horas de tra
 Para la valoración económica del tiempo de trabajo se tomará como referencia el valor de una práctica profesional equivalente a **1 Salario Mínimo Legal Vigente (SMLV)**, de acuerdo con las indicaciones establecidas en el proyecto.
 
 El valor monetario correspondiente se calculará con base en el SMLV vigente para 2026 y en el criterio de valoración por hora definido para el proyecto.
+
+📎 **Presupuesto detallado del proyecto:**  
+[`Presupuesto_PawQRS.xlsx`](docs/Presupuesto_PawQRS.xlsx)
+
+---
+
+## 📁 Documentación del proyecto
+
+Los documentos de soporte de **PawQRS** se encuentran almacenados en la carpeta [`docs`](docs/).
+
+| Documento | Estado |
+|---|:---:|
+| Acta de Entendimiento | 🟡 En diligenciamiento |
+| Acta de Colaboración | 🟡 En diligenciamiento |
+| Acta de Responsabilidad | 🟡 En diligenciamiento |
+| Cronograma y Diagrama de Gantt | 🟢 Elaborado |
+| Presupuesto del proyecto | 🟡 Pendiente de validación |
+
+---
