@@ -91,7 +91,40 @@ Esta licencia permite compartir, adaptar y modificar el contenido del proyecto, 
 
 ## 5. Reporte de visión
 
-*Pendiente de desarrollo.*
+### 5.1 Descripción general
+
+**PawQRS** es un sistema desarrollado para apoyar la gestión de Peticiones, Quejas, Reclamos y Sugerencias (PQRS) relacionadas con la atención de perros y gatos.
+
+El sistema será desarrollado en Python y contará con una interfaz de consola que permitirá al administrador registrar, consultar y actualizar la información de las PQRS. Los registros serán almacenados mediante archivos planos independientes de acuerdo con el tipo de solicitud.
+
+### 5.2 Problemática
+
+MEPEGA recibe PQRS por diferentes canales, como redes sociales, correo electrónico, atención presencial, teléfono y otros medios. Actualmente, la información debe ser procesada de forma manual, lo que hace necesario contar con una herramienta que facilite su registro, organización y seguimiento.
+
+Además, cada PQRS requiere un número de radicado consecutivo e independiente, información del solicitante, clasificación de la solicitud, información relacionada con la mascota, fechas de gestión y un estado que permita realizar seguimiento al proceso.
+
+### 5.3 Objetivo general
+
+Desarrollar **PawQRS**, un sistema de consola en Python que permita gestionar de manera organizada las Peticiones, Quejas, Reclamos y Sugerencias relacionadas con la atención de perros y gatos, mediante el registro, almacenamiento, consulta, actualización y análisis de la información.
+
+### 5.4 Objetivos específicos
+
+- Registrar la información de las PQRS y los datos correspondientes al solicitante.
+- Asignar números de radicado consecutivos a las solicitudes registradas.
+- Almacenar de manera independiente las peticiones, quejas, reclamos y sugerencias.
+- Permitir la consulta y actualización del estado de las PQRS.
+- Controlar las fechas de registro y las fechas máximas de respuesta.
+- Generar comprobantes de radicación con la información correspondiente.
+- Obtener estadísticas que faciliten el análisis de las PQRS registradas.
+
+### 5.5 Beneficios esperados
+
+- Facilitar la organización de las PQRS recibidas por MEPEGA.
+- Disminuir errores asociados al registro manual de la información.
+- Facilitar la consulta y seguimiento de las solicitudes.
+- Identificar las PQRS próximas a alcanzar su fecha máxima de respuesta.
+- Contar con información organizada para generar estadísticas.
+- Facilitar el seguimiento de las solicitudes relacionadas con perros y gatos.
 
 ---
 
