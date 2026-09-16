@@ -235,4 +235,67 @@ Para garantizar la consistencia de la información registrada en **PawQRS**, el 
 
 ## 7. Plan del proyecto
 
-*Pendiente de desarrollo.*
+### 7.1 Actividades del proyecto
+
+Para el desarrollo de **PawQRS** se establecen las siguientes actividades:
+
+1. Planeación inicial del proyecto y organización del equipo.
+2. Revisión del problema y levantamiento de requisitos.
+3. Definición de la estructura general del programa.
+4. Diseño de las validaciones de datos.
+5. Desarrollo del registro de PQRS.
+6. Implementación del almacenamiento y lectura de archivos planos.
+7. Desarrollo de la consulta y actualización del estado de las PQRS.
+8. Generación del comprobante de radicación.
+9. Desarrollo de las estadísticas del sistema.
+10. Integración de los diferentes módulos del programa.
+11. Realización de pruebas y corrección de errores.
+12. Elaboración del manual de usuario y documentación final.
+13. Preparación de la entrega final y sustentación del proyecto.
+
+### 7.2 Cronograma del proyecto
+
+El proyecto **PawQRS** inició el **19 de agosto de 2026**, fecha en la cual se conformó el equipo de trabajo y se inició la revisión del proyecto integrador.
+
+La primera entrega se realizará el **18 de septiembre de 2026**, correspondiente a la semana 8. A partir de esta entrega, el proyecto continuará con las etapas de diseño, desarrollo, pruebas y documentación hasta la entrega final y sustentación.
+
+| Actividad | S4<br>17-21 Ago | S5<br>24-28 Ago | S6<br>31 Ago-4 Sep | S7<br>7-11 Sep | S8<br>14-18 Sep | S9<br>21-25 Sep | S10<br>28 Sep-2 Oct | S11<br>5-9 Oct | S12<br>12-16 Oct | S13<br>19-23 Oct | S14<br>26-30 Oct | S15<br>2-6 Nov | S16<br>9-13 Nov |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Conformación y organización del equipo | X |  |  |  |  |  |  |  |  |  |  |  |  |
+| Revisión del enunciado | X | X |  |  |  |  |  |  |  |  |  |  |  |
+| Definición del nombre e identidad de PawQRS | X | X |  |  |  |  |  |  |  |  |  |  |  |
+| Organización del repositorio GitHub |  | X | X |  |  |  |  |  |  |  |  |  |  |
+| Reporte de visión |  |  | X | X |  |  |  |  |  |  |  |  |  |
+| Especificación de requisitos |  |  | X | X | X |  |  |  |  |  |  |  |  |
+| Plan del proyecto |  |  |  | X | X |  |  |  |  |  |  |  |  |
+| **Primera entrega** |  |  |  |  | **X** |  |  |  |  |  |  |  |  |
+| Diseño de la estructura del programa |  |  |  |  |  | X | X |  |  |  |  |  |  |
+| Desarrollo de validaciones |  |  |  |  |  | X | X | X |  |  |  |  |  |
+| Desarrollo del registro de PQRS |  |  |  |  |  |  | X | X |  |  |  |  |  |
+| Manejo de archivos planos |  |  |  |  |  |  |  | X | X |  |  |  |  |
+| Consulta y actualización de estados |  |  |  |  |  |  |  |  | X | X |  |  |  |
+| Generación del comprobante de radicación |  |  |  |  |  |  |  |  | X | X |  |  |  |
+| Desarrollo de estadísticas |  |  |  |  |  |  |  |  |  | X | X |  |  |
+| Integración de módulos |  |  |  |  |  |  |  |  |  |  | X | X |  |
+| Pruebas y corrección de errores |  |  |  |  |  |  |  |  |  |  | X | X |  |
+| Manual y documentación final |  |  |  |  |  |  |  |  |  |  | X | X |  |
+| **Entrega final** |  |  |  |  |  |  |  |  |  |  |  | **X** |  |
+| Preparación de sustentación |  |  |  |  |  |  |  |  |  |  |  | X | X |
+| **Sustentación** |  |  |  |  |  |  |  |  |  |  |  |  | **X** |
+
+### 7.3 Presupuesto del proyecto
+
+El desarrollo de **PawQRS** contempla una dedicación total de **50 horas de trabajo** por parte del equipo, distribuidas entre sus cinco integrantes.
+
+| Integrante | Horas asignadas | Participación |
+|---|---:|---:|
+| Estefania Jiménez Jaramillo | 10 horas | 20% |
+| Santiago Franco Lopez | 10 horas | 20% |
+| Isabela Maria Rodríguez Ramos | 10 horas | 20% |
+| Daniela Zapata Henao | 10 horas | 20% |
+| María Camila Ocampo Rúa | 10 horas | 20% |
+| **Total** | **50 horas** | **100%** |
+
+Para la valoración económica del tiempo de trabajo se tomará como referencia el valor de una práctica profesional equivalente a **1 Salario Mínimo Legal Vigente (SMLV)**, de acuerdo con las indicaciones establecidas en el proyecto.
+
+El valor monetario correspondiente se calculará con base en el SMLV vigente para 2026 y en el criterio de valoración por hora definido para el proyecto.
