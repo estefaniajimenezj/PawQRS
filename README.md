@@ -1,2 +1,12 @@
-# PawQRS
-Proyecto integrador de Algoritmia y Programación 2026-2 para el desarrollo de un gestor de PQRS relacionadas con la atención de perros y gatos.
+PawQRS
+│
+├── Logo
+├── Descripción general
+│
+├── 1. Integrantes
+├── 2. Vínculos académicos y descripción
+├── 3. Nombre del proyecto y detalles
+├── 4. Licencia del software
+├── 5. Reporte de visión
+├── 6. Especificación de requisitos
+└── 7. Plan del proyecto
