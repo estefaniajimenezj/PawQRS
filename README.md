@@ -130,8 +130,107 @@ Desarrollar **PawQRS**, un sistema de consola en Python que permita gestionar de
 
 ## 6. Especificación de requisitos
 
-*Pendiente de desarrollo.*
+### 6.1 Requisitos funcionales
 
+Los requisitos funcionales establecen las acciones y operaciones que deberá realizar **PawQRS** para gestionar las Peticiones, Quejas, Reclamos y Sugerencias.
+
+- **RF01. Registro de PQRS:** El sistema deberá permitir registrar Peticiones, Quejas, Reclamos y Sugerencias relacionadas con la atención de perros y gatos.
+
+- **RF02. Generación de radicado:** El sistema deberá asignar automáticamente a cada PQRS un número de radicado consecutivo, propio y sin números repetidos.
+
+- **RF03. Datos del solicitante:** El sistema deberá permitir registrar el nombre completo, tipo y número de documento, teléfono de contacto, tipo de teléfono, correo electrónico y dirección del solicitante.
+
+- **RF04. Información de la PQRS:** El sistema deberá registrar el tipo de solicitud, fecha de radicación, canal de recepción, asunto o título y descripción detallada de la solicitud.
+
+- **RF05. Tipo de mascota:** El sistema deberá permitir identificar si la PQRS está relacionada con un perro o un gato.
+
+- **RF06. Campus relacionado:** El sistema deberá permitir seleccionar el campus relacionado con la PQRS.
+
+- **RF07. Fecha máxima de respuesta:** El sistema deberá calcular automáticamente la fecha máxima de respuesta, correspondiente a 30 días calendario después de la fecha de registro.
+
+- **RF08. Estado inicial:** El sistema deberá asignar el estado **Registrada** como estado inicial de cada nueva PQRS.
+
+- **RF09. Actualización de estado:** El sistema deberá permitir actualizar el estado siguiendo el flujo **Registrada → En proceso → Solucionada**.
+
+- **RF10. Almacenamiento:** El sistema deberá almacenar las PQRS en cuatro archivos planos independientes: `Peticion.txt`, `Queja.txt`, `Reclamo.txt` y `Sugerencia.txt`, según el tipo de solicitud.
+
+- **RF11. Consulta de PQRS:** El sistema deberá permitir consultar las PQRS registradas y visualizar su estado e información asociada.
+
+- **RF12. Comprobante de radicación:** El sistema deberá generar un comprobante de radicación en formato TXT con la información correspondiente a la PQRS registrada.
+
+- **RF13. Promedio de días de respuesta:** El sistema deberá calcular el promedio de días que toma dar respuesta a una PQRS.
+
+- **RF14. Estadísticas de gestión:** El sistema deberá generar cinco estadísticas adicionales para apoyar el análisis de las PQRS, considerando información como la cantidad de registros por tipo de solicitud, la cantidad de registros asociados a perros y gatos, las PQRS activas, los registros más antiguos y las solicitudes próximas a alcanzar su fecha máxima de respuesta.
+
+### 6.2 Requisitos no funcionales
+
+Los requisitos no funcionales establecen las condiciones y características que deberá cumplir **PawQRS** durante su funcionamiento.
+
+- **RNF01. Usabilidad:** El sistema deberá contar con un menú de consola amigable y comprensible que facilite al administrador la gestión de las PQRS.
+
+- **RNF02. Tecnología:** El sistema deberá ser desarrollado utilizando el lenguaje de programación Python.
+
+- **RNF03. Persistencia de la información:** La información de las PQRS deberá almacenarse mediante archivos planos, permitiendo conservar los registros para posteriores consultas.
+
+- **RNF04. Organización de los datos:** Los archivos planos correspondientes a Peticiones, Quejas, Reclamos y Sugerencias deberán manejar la misma estructura de datos.
+
+- **RNF05. Organización del código:** El código fuente del programa deberá estar almacenado en la carpeta `src` del repositorio de GitHub.
+
+- **RNF06. Modularidad:** El programa deberá organizar sus funcionalidades en diferentes archivos de Python, separando las validaciones, la manipulación de archivos y la generación de reportes.
+
+- **RNF07. Legibilidad:** El código deberá estar organizado y documentado de manera que facilite su lectura, comprensión y mantenimiento.
+
+- **RNF08. Consistencia de la información:** El sistema deberá validar la información ingresada antes de almacenarla para reducir registros con datos inválidos.
+
+- **RNF09. Formato del comprobante:** El comprobante de radicación deberá generarse en formato de texto ASCII, con una estructura organizada, alineada y con un ancho fijo de 120 caracteres.
+
+### 6.3 Reglas de validación
+
+Para garantizar la consistencia de la información registrada en **PawQRS**, el sistema deberá aplicar las siguientes reglas de validación:
+
+#### Datos del solicitante
+
+- **Nombre completo:** deberá contener entre 3 y 100 caracteres. Solo permitirá letras, espacios, tildes, apóstrofes y guiones. No permitirá números y será un campo obligatorio.
+
+- **Tipo de documento:** será obligatorio y únicamente permitirá los valores CC (Cédula de ciudadanía), TI (Tarjeta de identidad), CE (Cédula de extranjería), PP (Pasaporte) y NIT.
+
+- **Número de documento:** deberá contener entre 3 y 15 dígitos, únicamente números y será obligatorio.
+
+- **Tipo de teléfono:** será obligatorio y permitirá seleccionar entre Celular, Fijo, Corporativo u Otro.
+
+- **Teléfono de contacto:** deberá contener exactamente 10 dígitos, únicamente números y será obligatorio.
+
+- **Correo electrónico:** será obligatorio, tendrá una longitud máxima de 254 caracteres y deberá cumplir una estructura válida de correo electrónico, incluyendo un único símbolo `@` y un dominio válido.
+
+- **Dirección:** será un campo opcional, deberá contener entre 5 y 200 caracteres cuando sea ingresada y podrá incluir letras, números y caracteres comunes de direcciones como `#`, `-`, `.`, `/`.
+
+#### Información de la PQRS
+
+- **Tipo de solicitud:** será obligatorio y únicamente permitirá seleccionar Petición, Queja, Reclamo o Sugerencia.
+
+- **Fecha de radicación:** será obligatoria, utilizará el formato manejado por la librería `datetime` de Python y no podrá corresponder a una fecha futura.
+
+- **Canal de recepción:** será obligatorio y permitirá seleccionar Presencial, Correo electrónico, Página web, Teléfono, Redes sociales u Otro.
+
+- **Asunto o título:** será obligatorio, deberá contener entre 5 y 150 caracteres y podrá incluir letras, números y signos de puntuación básicos.
+
+- **Descripción detallada:** será obligatoria, deberá contener entre 20 y 2.000 caracteres y no podrá estar vacía ni contener únicamente espacios.
+
+#### Información relacionada
+
+- **Tipo de mascota:** será obligatorio y únicamente permitirá seleccionar Perro o Gato.
+
+- **Campus relacionado:** será obligatorio y únicamente permitirá seleccionar: Campus Medellín - Ciudad Universitaria, Campus Medellín - Ciudadela Robledo, Campus en el Área de la Salud, Campus Medellín - Sede de Posgrado, Campus Medellín - Edificio San Ignacio, Campus Medellín - Antigua Escuela de Derecho, Campus Medellín - Edificio Antioquia, Campus Medellín - Casas Patrimoniales o Campus Medellín - Edificio de Extensión.
+
+#### Gestión de tiempos y estados
+
+- **Fecha máxima de respuesta:** será calculada automáticamente sumando 30 días a la fecha de registro.
+
+- **Estado:** será obligatorio y únicamente permitirá los valores Registrada, En proceso y Solucionada.
+
+- **Estado inicial:** toda nueva PQRS deberá registrarse inicialmente con el estado **Registrada**.
+
+- **Cambio de estado:** deberá seguir exclusivamente el flujo **Registrada → En proceso → Solucionada**.
 ---
 
 ## 7. Plan del proyecto
