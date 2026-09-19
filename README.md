@@ -420,20 +420,26 @@ La primera entrega se realizará el **18 de septiembre de 2026**, correspondient
 
 ### 7.3 Presupuesto del proyecto
 
-El desarrollo de **PawQRS** contempla una dedicación total de **50 horas de trabajo** por parte del equipo, distribuidas entre sus cinco integrantes.
+El presupuesto de **PawQRS** se calcula a partir del tiempo de dedicación del equipo. De acuerdo con los lineamientos del proyecto, se contempla una inversión total de **50 horas de trabajo**.
 
-| Integrante | Horas asignadas | Participación |
-|---|---:|---:|
-| Estefania Jiménez Jaramillo | 10 horas | 20% |
-| Santiago Franco Lopez | 10 horas | 20% |
-| Isabela Maria Rodríguez Ramos | 10 horas | 20% |
-| Daniela Zapata Henao | 10 horas | 20% |
-| María Camila Ocampo Rúa | 10 horas | 20% |
-| **Total** | **50 horas** | **100%** |
+Con base en la aclaración realizada por el profesor, el valor económico del proyecto se determina utilizando el **valor hora del Salario Mínimo Legal Mensual Vigente (SMLMV) en Colombia para 2026**.
 
-Para la valoración económica del tiempo de trabajo se tomará como referencia el valor de una práctica profesional equivalente a **1 Salario Mínimo Legal Vigente (SMLV)**, de acuerdo con las indicaciones establecidas en el proyecto.
+Para 2026, el salario mínimo mensual corresponde a **$1.750.905**. Con una jornada máxima de **42 horas semanales**, equivalentes a **210 horas mensuales**, el valor de una hora ordinaria se estima en:
 
-El valor monetario correspondiente se calculará con base en el SMLV vigente para 2026 y en el criterio de valoración por hora definido para el proyecto.
+**$1.750.905 ÷ 210 = $8.338 por hora**
+
+Por tanto, el costo total estimado del proyecto es:
+
+**$8.338 × 50 horas = $416.900**
+
+| Integrante | Horas asignadas | Participación | Costo estimado |
+|---|---:|---:|---:|
+| Estefania Jiménez Jaramillo | 10 horas | 20% | $83.380 |
+| Santiago Franco Lopez | 10 horas | 20% | $83.380 |
+| Isabela Maria Rodríguez Ramos | 10 horas | 20% | $83.380 |
+| Daniela Zapata Henao | 10 horas | 20% | $83.380 |
+| María Camila Ocampo Rúa | 10 horas | 20% | $83.380 |
+| **Total** | **50 horas** | **100%** | **$416.900** |
 
 📎 **Presupuesto detallado del proyecto:**  
 [`Presupuesto_PawQRS.xlsx`](docs/Presupuesto_PawQRS.xlsx)
@@ -446,10 +452,8 @@ Los documentos de soporte de **PawQRS** se encuentran almacenados en la carpeta 
 
 | Documento | Estado |
 |---|:---:|
-| Acta de Entendimiento | 🟡 En diligenciamiento |
-| Acta de Colaboración | 🟡 En diligenciamiento |
-| Acta de Responsabilidad | 🟡 En diligenciamiento |
+| Actas de Entendimiento, Colaboración y Responsabilidad | 🟢 Firmadas |
 | Cronograma y Diagrama de Gantt | 🟢 Elaborado |
-| Presupuesto del proyecto | 🟡 Pendiente de validación |
+| Presupuesto del proyecto | 🟢 Elaborado |
 
 ---
