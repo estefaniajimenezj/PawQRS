@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🐾 PawQRS
+# 🐾 PawQRS .
 
 ### Gestor de Peticiones, Quejas, Reclamos y Sugerencias
 
