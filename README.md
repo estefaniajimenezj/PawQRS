@@ -2,7 +2,7 @@
 
 # 🐾 PawQRS
 
-### Gestor de Peticiones, Quejas.., Reclamos y Sugerencias
+### Gestor de Peticiones, Quejas, Reclamos y Sugerencias
 
 <img src="images/logo_pawqrs.png" alt="Logo PawQRS" width="350">
 
