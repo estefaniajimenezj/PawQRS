@@ -142,7 +142,7 @@ mcamila.ocampo@udea.edu.co
 Desarrollo de estadísticas de gestión · Apoyo en `reportes.py` · Análisis y documentación de resultados
 
 **Fortalezas**  
-Compromiso · Comunicación asertiva · Trabajo en equipo
+Compromiso · Comunicación asertiva · Trabajo en equipo.
 
 </td>
 </tr>
