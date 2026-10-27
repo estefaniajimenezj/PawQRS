@@ -199,15 +199,9 @@ El nombre **PawQRS** combina la palabra inglesa *paw* —pata— con las siglas 
 
 El proyecto **PawQRS - Gestor de PQRS** se encuentra registrado bajo la licencia **Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)**.
 
-Esta licencia permite compartir, adaptar y modificar el contenido del proyecto, siempre que se reconozca la autoría de sus creadores, no se utilice con fines comerciales y las adaptaciones realizadas se compartan bajo la misma licencia.
+Esta licencia permite compartir, adaptar y modificar el contenido del proyecto, siempre que se reconozca la autoría de sus creadores, no se utilice con fines comerciales y las adaptaciones realizadas se compartan bajo la misma licencia.  Para consultar los términos y condiciones completos, visite el siguiente enlace: [Creative Commons BY-NC-SA 4.0 Internacional](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es).
 
-### Autores
-
-- Estefania Jiménez Jaramillo
-- Santiago Franco Lopez
-- Isabela Maria Rodríguez Ramos
-- Daniela Zapata Henao
-- María Camila Ocampo Rúa
+**Autores**: Estefanía Jiménez Jaramillo, Santiago Franco López, Isabela María Rodríguez Ramos, Daniela Zapata Henao y María Camila Ocampo Rúa.
 
 **Año:** 2026
 
