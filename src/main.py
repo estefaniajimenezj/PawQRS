@@ -1,3 +1,5 @@
+from radicado import
+generar_comprobante
 def mostrar_menu():
     print("\nPAWQRS - GESTOR DE PQRS")
     print("1. Registrar PQRS")
@@ -10,6 +12,16 @@ while True:
     opcion = input("Seleccione una opción: ")
     if opcion == "1":
         print("Registro de PQRS")
+
+        datos = {
+        "radicado": "PQRS-2026-0001",
+        "tipo": "Petición",
+        "solicitante": "Juan Pérez",
+        "mascota": "Max",
+        "campus": "Campus Principal",
+        "estado": "Recibida",
+        "fecha_maxima": "05/11/2026"
+    }
     elif opcion == "2":
         print("Consulta de PQRS")
     elif opcion == "3":
