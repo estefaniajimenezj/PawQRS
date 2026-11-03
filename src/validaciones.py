@@ -1,4 +1,5 @@
 # Módulo de Validaciones y Calidad de Datos 
+from datetime import datetime
 
 def validar_nombre(nombre: str) -> bool:
     if not isinstance(nombre, str) or len(nombre.strip()) < 2:
@@ -30,8 +31,6 @@ def validar_tipo_pqrs(tipo: str) -> bool:
         return False
     tipos_validos = ["peticion", "queja", "reclamo", "sugerencia", "felicitacion"]
     return tipo.strip().lower() in tipos_validos
-    
-    from datetime import datetime
 
 def validar_fecha(fecha_str: str) -> bool:
     if not isinstance(fecha_str, str) or len(fecha_str.strip()) == 0:
