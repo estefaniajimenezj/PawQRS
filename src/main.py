@@ -1,5 +1,5 @@
 # Importar la funcion del comprobante
-from src.radicado import generar_comprobante
+from radicado import generar_comprobante
 
 
 def mostrar_menu():
