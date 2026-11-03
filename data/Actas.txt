@@ -1,1 +1,2 @@
 
+2026-11-03;Santiago Franco, Equipo Dev;Inicio modulo archivos planos;Usar pipes (|) para PQRS y punto y coma (;) para actas;Crear src/archivos.py y estructura data/;Santiago Franco;Entregar prueba de lectura y escritura
