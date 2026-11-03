@@ -30,3 +30,33 @@ def validar_tipo_pqrs(tipo: str) -> bool:
         return False
     tipos_validos = ["peticion", "queja", "reclamo", "sugerencia", "felicitacion"]
     return tipo.strip().lower() in tipos_validos
+    
+    from datetime import datetime
+
+def validar_fecha(fecha_str: str) -> bool:
+    if not isinstance(fecha_str, str) or len(fecha_str.strip()) == 0:
+        return False
+    for formato in ["%Y-%m-%d", "%d/%m/%Y"]:
+        try:
+            datetime.strptime(fecha_str.strip(), formato)
+            return True
+        except ValueError:
+            continue
+    return False
+
+def validar_canal(canal: str) -> bool:
+    if not isinstance(canal, str):
+        return False
+    canales_validos = ["web", "correo", "presencial", "telefonico", "telefónico", "formulario"]
+    return canal.strip().lower() in canales_validos
+
+def validar_titulo(titulo: str) -> bool:
+    if not isinstance(titulo, str):
+        return False
+    titulo_limpio = titulo.strip()
+    return len(titulo_limpio) >= 3 and len(titulo_limpio) <= 80
+
+def validar_descripcion(descripcion: str) -> bool:
+    if not isinstance(descripcion, str):
+        return False
+    return len(descripcion.strip()) >= 10
