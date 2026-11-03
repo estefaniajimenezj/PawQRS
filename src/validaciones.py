@@ -60,3 +60,21 @@ def validar_descripcion(descripcion: str) -> bool:
     if not isinstance(descripcion, str):
         return False
     return len(descripcion.strip()) >= 10
+    
+def validar_mascota(mascota: str) -> bool:
+    if not isinstance(mascota, str):
+        return False
+    mascotas_validas = ["perro", "gato", "otro", "ninguna", "ninguno"]
+    return mascota.strip().lower() in mascotas_validas
+
+def validar_campus(campus: str) -> bool:
+    if not isinstance(campus, str):
+        return False
+    campuses_validos = ["ciudad universitaria", "robledo", "posgrados", "oriente", "uraba", "urabá", "otra sede"]
+    return campus.strip().lower() in campuses_validos
+
+def validar_estado(estado: str) -> bool:
+    if not isinstance(estado, str):
+        return False
+    estados_validos = ["pendiente", "en proceso", "resuelto", "cerrado"]
+    return estado.strip().lower() in estados_validos
