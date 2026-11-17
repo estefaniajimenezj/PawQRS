@@ -17,5 +17,7 @@
 - campus_relacionado
 - fecha_maxima_respuesta
 - estado_peticion
+- hora_radicacion
+- fecha_solucion
 
 ## Pendiente de revisión y aprobación por los cinco integrantes en la reunión de hoy. ##
