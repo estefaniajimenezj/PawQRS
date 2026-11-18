@@ -204,3 +204,5 @@ def clasificar_vencimientos(registros):
 
     print("PQRS proximas a vencer:", proximas)
     print("PQRS vencidas:", vencidas)
+
+clasificar_vencimientos(registros_prueba)
