@@ -143,3 +143,40 @@ def calcular_promedio_respuesta(registros):
 
 
 calcular_promedio_respuesta(registros_prueba)
+
+def obtener_pqrs_antiguas(registros):
+
+    activas = []
+
+    for registro in registros:
+
+        if registro["estado_peticion"] != "Solucionada":
+            activas.append(registro)
+
+    # Ordenar las solicitudes por fecha
+    for i in range(len(activas)):
+
+        for j in range(len(activas) - 1):
+
+            if activas[j]["fecha_radicacion"] > activas[j + 1]["fecha_radicacion"]:
+
+                temporal = activas[j]
+                activas[j] = activas[j + 1]
+                activas[j + 1] = temporal
+
+    print("PQRS activas mas antiguas:")
+
+    contador = 0
+
+    for registro in activas:
+
+        if contador < 5:
+
+            print(
+                "ID:", registro["id"],
+                "Fecha:", registro["fecha_radicacion"]
+            )
+
+            contador += 1
+
+obtener_pqrs_antiguas(registros_prueba)
