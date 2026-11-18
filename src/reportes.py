@@ -180,3 +180,27 @@ def obtener_pqrs_antiguas(registros):
             contador += 1
 
 obtener_pqrs_antiguas(registros_prueba)
+
+def clasificar_vencimientos(registros):
+
+    proximas = 0
+    vencidas = 0
+
+    for registro in registros:
+
+        if registro["estado_peticion"] != "Solucionada":
+
+            fecha_vencimiento = datetime.strptime(
+                registro["fecha_maxima_respuesta"], "%Y-%m-%d"
+            ).date()
+
+            dias_restantes = (fecha_vencimiento - date.today()).days
+
+            if dias_restantes < 0:
+                vencidas += 1
+
+            elif dias_restantes <= 5:
+                proximas += 1
+
+    print("PQRS proximas a vencer:", proximas)
+    print("PQRS vencidas:", vencidas)
