@@ -109,3 +109,37 @@ def contar_por_estado(registros):
     print("PQRS Solucionadas:", solucionadas)
 
 contar_por_estado(registros_prueba)
+
+def calcular_promedio_respuesta(registros):
+
+    total_dias = 0
+    cantidad = 0
+
+    for registro in registros:
+
+        if registro["estado_peticion"] == "Solucionada":
+
+            fecha_inicio = datetime.strptime(
+                registro["fecha_radicacion"], "%Y-%m-%d"
+            )
+
+            fecha_fin = datetime.strptime(
+                registro["fecha_solucion"], "%Y-%m-%d"
+            )
+
+            dias = (fecha_fin - fecha_inicio).days
+
+            total_dias += dias
+            cantidad += 1
+
+    if cantidad > 0:
+
+        promedio = total_dias / cantidad
+
+        print("Promedio de dias de respuesta:", promedio)
+
+    else:
+        print("No hay PQRS solucionadas.")
+
+
+calcular_promedio_respuesta(registros_prueba)
