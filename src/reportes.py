@@ -40,3 +40,31 @@ registros_prueba = [
         "fecha_solucion": ""
     }
 ]
+
+def contar_por_tipo(registros):
+
+    peticiones = 0
+    quejas = 0
+    reclamos = 0
+    sugerencias = 0
+
+    for registro in registros:
+
+        if registro["tipo_solicitud"] == "Petición":
+            peticiones += 1
+
+        elif registro["tipo_solicitud"] == "Queja":
+            quejas += 1
+
+        elif registro["tipo_solicitud"] == "Reclamo":
+            reclamos += 1
+
+        elif registro["tipo_solicitud"] == "Sugerencia":
+            sugerencias += 1
+
+    print("Cantidad de Peticiones:", peticiones)
+    print("Cantidad de Quejas:", quejas)
+    print("Cantidad de Reclamos:", reclamos)
+    print("Cantidad de Sugerencias:", sugerencias)
+
+contar_por_tipo(registros_prueba)
