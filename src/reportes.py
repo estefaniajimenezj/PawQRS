@@ -86,3 +86,26 @@ def contar_por_mascota(registros):
     print("Cantidad de Gatos:", gatos)
 
 contar_por_mascota(registros_prueba)
+
+def contar_por_estado(registros):
+
+    registradas = 0
+    en_proceso = 0
+    solucionadas = 0
+
+    for registro in registros:
+
+        if registro["estado_peticion"] == "Registrada":
+            registradas += 1
+
+        elif registro["estado_peticion"] == "En proceso":
+            en_proceso += 1
+
+        elif registro["estado_peticion"] == "Solucionada":
+            solucionadas += 1
+
+    print("PQRS Registradas:", registradas)
+    print("PQRS En proceso:", en_proceso)
+    print("PQRS Solucionadas:", solucionadas)
+
+contar_por_estado(registros_prueba)
