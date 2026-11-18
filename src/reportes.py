@@ -68,3 +68,21 @@ def contar_por_tipo(registros):
     print("Cantidad de Sugerencias:", sugerencias)
 
 contar_por_tipo(registros_prueba)
+
+def contar_por_mascota(registros):
+
+    perros = 0
+    gatos = 0
+
+    for registro in registros:
+
+        if registro["tipo_mascota"] == "Perro":
+            perros += 1
+
+        elif registro["tipo_mascota"] == "Gato":
+            gatos += 1
+
+    print("Cantidad de Perros:", perros)
+    print("Cantidad de Gatos:", gatos)
+
+contar_por_mascota(registros_prueba)
