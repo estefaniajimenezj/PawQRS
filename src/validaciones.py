@@ -115,5 +115,28 @@ def validar_canal(canal: str) -> bool:
         "redes sociales",
         "otro" ]
     return canal.strip().lower() in canales_validos
- 
+
+def validar_titulo(titulo: str) -> bool:
+    if not isinstance(titulo, str):
+        return False
+    titulo_limpio = titulo.strip()
+    if len(titulo_limpio) < 5 or len(titulo_limpio) > 150:
+        return False
+    signos_basicos = [" ", ".", ",", ";", ":", "¡", "!", "¿", "?", "(", ")", "-", "'", '"']
+    for caracter in titulo_limpio:
+        if not (caracter.isalnum() or caracter in signos_basicos):
+            return False
+    return True
+
+def validar_descripcion(descripcion: str) -> bool:
+    if not isinstance(descripcion, str):
+        return False
+    desc_limpia = descripcion.strip()
+    return 20 <= len(desc_limpia) <= 2000
+
+def validar_mascota(mascota: str) -> bool:
+    if not isinstance(mascota, str):
+        return False
+    mascotas_validas = ["perro", "gato"]
+    return mascota.strip().lower() in mascotas_validas
 
