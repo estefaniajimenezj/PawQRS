@@ -1,6 +1,6 @@
 def generar_comprobante(datos):
 
-    ancho = 50
+    ancho = 120
 
     print("\n" + "=" * ancho)
     print("COMPROBANTE DE RADICACION".center(ancho))
