@@ -70,3 +70,50 @@ def validar_direccion(direccion: str) -> bool:
         if not (caracter.isalnum() or caracter in caracteres_permitidos):
             return False
     return True
+
+def validar_tipo_pqrs(tipo: str) -> bool:
+    if not isinstance(tipo, str):
+        return False
+    tipos_validos = ["peticion", "petición", "queja", "reclamo", "sugerencia"]
+    return tipo.strip().lower() in tipos_validos
+
+
+def validar_fecha(fecha_str: str) -> bool:
+    if not isinstance(fecha_str, str) or len(fecha_str.strip()) == 0:
+        return False
+    hoy = datetime.now().date()
+    for formato in ["%Y-%m-%d", "%d/%m/%Y"]:
+        try:
+            fecha_ingresada = datetime.strptime(fecha_str.strip(), formato).date()
+            return fecha_ingresada <= hoy
+        except ValueError:
+            continue
+    return False
+
+def validar_hora(hora_str: str) -> bool:
+    if not isinstance(hora_str, str) or len(hora_str.strip()) == 0:
+        return False
+    for formato in ["%H:%M", "%H:%M:%S"]:
+        try:
+            datetime.strptime(hora_str.strip(), formato)
+            return True
+        except ValueError:
+            continue
+    return False
+ 
+def validar_canal(canal: str) -> bool:
+    if not isinstance(canal, str):
+        return False
+    canales_validos = 
+        ["presencial",
+        "correo electronico",
+        "correo electrónico",
+        "pagina web",
+        "página web",
+        "telefono",
+        "teléfono",
+        "redes sociales",
+        "otro" ]
+    return canal.strip().lower() in canales_validos
+ 
+
