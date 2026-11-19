@@ -96,7 +96,7 @@ def guardar_registro(datos: dict) -> bool:
     """Guarda una PQRS completa en el archivo TXT correspondiente."""
 
     try:
-        tipo_pqrs = datos.get("tipo", "")
+        tipo_pqrs = datos.get("tipo_solicitud", "")
         ruta_archivo = obtener_ruta_archivo(tipo_pqrs)
 
         registro = datos.copy()
@@ -112,7 +112,7 @@ def guardar_registro(datos: dict) -> bool:
             print("[ERROR] El radicado ya existe.")
             return False
 
-        registro.setdefault("estado", "Registrada")
+        registro.setdefault("estado_peticion", "Pendiente")
         registro.setdefault("fecha_solucion", "")
 
         with open(
@@ -209,11 +209,11 @@ def actualizar_estado(
     """Actualiza el estado y la fecha de solucion de una PQRS."""
 
     estados_validos = {
-        "registrada": "Registrada",
-        "en proceso": "En proceso",
-        "solucionada": "Solucionada",
-        "cerrada": "Cerrada"
-    }
+    "pendiente": "Pendiente",
+    "en proceso": "En proceso",
+    "resuelto": "Resuelto",
+    "cerrado": "Cerrado"
+}
 
     estado_normalizado = normalizar_texto(nuevo_estado)
 
@@ -230,11 +230,11 @@ def actualizar_estado(
         for registro in registros:
             if registro.get("radicado") == radicado:
 
-                registro["estado"] = estados_validos[
+                registro["estado_peticion"] = estados_validos[
                     estado_normalizado
                 ]
 
-                if estado_normalizado == "solucionada":
+                if estado_normalizado == "resuelto":
                     registro["fecha_solucion"] = (
                         datetime.now().strftime("%Y-%m-%d")
                     )
