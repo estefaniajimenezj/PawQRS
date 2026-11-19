@@ -140,3 +140,43 @@ def validar_mascota(mascota: str) -> bool:
     mascotas_validas = ["perro", "gato"]
     return mascota.strip().lower() in mascotas_validas
 
+def validar_campus(campus: str) -> bool:
+    if not isinstance(campus, str):
+        return False
+    campuses_validos = 
+      [ "campus medellín - ciudad universitaria",
+        "campus medellin - ciudad universitaria",
+        "campus medellín - ciudadela robledo",
+        "campus medellin - ciudadela robledo",
+        "campus en el área de la salud",
+        "campus en el area de la salud",
+        "campus medellín - sede de posgrado",
+        "campus medellin - sede de posgrado",
+        "campus medellín - edificio san ignacio",
+        "campus medellin - edificio san ignacio",
+        "campus medellín - antigua escuela de derecho",
+        "campus medellin - antigua escuela de derecho",
+        "campus medellín - edificio antioquia",
+        "campus medellin - edificio antioquia",
+        "campus medellín - casas patrimoniales",
+        "campus medellin - casas patrimoniales",
+        "campus medellín - edificio de extensión",
+        "campus medellin - edificio de extension" ]
+    return campus.strip().lower() in campuses_validos
+
+def validar_estado(estado: str) -> bool:
+    if not isinstance(estado, str):
+        return False
+    estados_validos = ["registrada", "en proceso", "solucionada"]
+    return estado.strip().lower() in estados_validos
+
+def validar_transicion_estado(estado_actual: str, nuevo_estado: str) -> bool:
+    if not (validar_estado(estado_actual) and validar_estado(nuevo_estado)):
+        return False
+    actual = estado_actual.strip().lower()
+    nuevo = nuevo_estado.strip().lower()
+    flujo = {
+        "registrada": "en proceso",
+        "en proceso": "solucionada"
+    }
+    return flujo.get(actual) == nuevo
