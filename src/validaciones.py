@@ -23,3 +23,50 @@ def validar_documento(numero_documento: str) -> bool:
         return False
     doc = numero_documento.strip()
     return doc.isdigit() and (3 <= len(doc) <= 15)
+
+def validar_tipo_telefono(tipo_telefono: str) -> bool:
+    if not isinstance(tipo_telefono, str):
+        return False
+    tipos_validos = ["celular", "fijo", "corporativo", "otro"]
+    return tipo_telefono.strip().lower() in tipos_validos
+
+def validar_telefono(telefono: str) -> bool:
+    if not isinstance(telefono, str):
+        return False
+    tel = telefono.strip()
+    return tel.isdigit() and len(tel) == 10
+
+def validar_correo(correo: str) -> bool:
+    if not isinstance(correo, str):
+        return False
+    correo_limpio = correo.strip()
+    if len(correo_limpio) < 5 or len(correo_limpio) > 254:
+        return False
+    if " " in correo_limpio or correo_limpio.count("@") != 1:
+        return False
+    partes = correo_limpio.split("@")
+    usuario = partes[0]
+    dominio = partes[1]
+    if len(usuario) == 0 or "." not in dominio:
+        return False
+    partes_dominio = dominio.split(".")
+    for subparte in partes_dominio:
+        if len(subparte) == 0:
+            return False
+    return True
+
+def validar_direccion(direccion: str) -> bool:
+    if direccion is None:
+        return True
+    if not isinstance(direccion, str):
+        return False
+    dir_limpia = direccion.strip()
+    if dir_limpia == "":
+        return True
+    if len(dir_limpia) < 5 or len(dir_limpia) > 200:
+        return False
+    caracteres_permitidos = [" ", "#", "-", ".", "/"]
+    for caracter in dir_limpia:
+        if not (caracter.isalnum() or caracter in caracteres_permitidos):
+            return False
+    return True
