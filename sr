@@ -7,6 +7,7 @@ import os
 import json
 import csv
 import unicodedata
+import uuid
 from datetime import datetime
 
 
@@ -31,7 +32,32 @@ TIPOS_PQRS = {
     "sugerencia": ("Sugerencia.txt", "SUG"),
     "felicitacion": ("Felicitacion.txt", "FEL")
 }
+# ==========================================
+# ESTRUCTURA OFICIAL DE DATOS PQRS
+# ==========================================
 
+CAMPOS_PQRS = [
+    "id",
+    "radicado",
+    "nombre_completo",
+    "tipo_documento",
+    "numero_documento",
+    "tipo_telefono",
+    "telefono_contacto",
+    "correo_electronico",
+    "direccion",
+    "tipo_solicitud",
+    "fecha_radicacion",
+    "canal_recepcion",
+    "asunto_titulo",
+    "descripcion_detallada",
+    "tipo_mascota",
+    "campus_relacionado",
+    "fecha_maxima_respuesta",
+    "estado_peticion",
+    "hora_radicacion",
+    "fecha_solucion"
+]
 
 def normalizar_texto(texto: str) -> str:
     """Normaliza textos para comparar tipos sin diferencias de tildes."""
@@ -92,6 +118,7 @@ def generar_siguiente_radicado(tipo_pqrs: str) -> str:
 # GUARDAR REGISTROS DE PQRS
 # ==========================================
 
+
 def guardar_registro(datos: dict) -> bool:
     """Guarda una PQRS completa en el archivo TXT correspondiente."""
 
@@ -99,22 +126,35 @@ def guardar_registro(datos: dict) -> bool:
         tipo_pqrs = datos.get("tipo_solicitud", "")
         ruta_archivo = obtener_ruta_archivo(tipo_pqrs)
 
-        registro = datos.copy()
+        registro = {
+            campo: datos.get(campo, "")
+            for campo in CAMPOS_PQRS
+        }
 
-        if not registro.get("radicado"):
-            registro["radicado"] = generar_siguiente_radicado(
-                tipo_pqrs
-            )
+        # Generar identificador interno
+        if not registro["id"]:
+            registro["id"] = str(uuid.uuid4())
 
+        # Generar numero de radicado
+        registro["radicado"] = generar_siguiente_radicado(
+            tipo_pqrs
+        )
+
+        # Verificar que el radicado no exista
         if buscar_por_radicado(
             tipo_pqrs, registro["radicado"]
         ) is not None:
             print("[ERROR] El radicado ya existe.")
             return False
 
-        registro.setdefault("estado_peticion", "Pendiente")
-        registro.setdefault("fecha_solucion", "")
+        # Valores iniciales
+        if not registro["estado_peticion"]:
+            registro["estado_peticion"] = "Pendiente"
 
+        if not registro["fecha_solucion"]:
+            registro["fecha_solucion"] = ""
+
+        # Guardar registro
         with open(
             ruta_archivo,
             mode="a",
@@ -209,9 +249,10 @@ def actualizar_estado(
     """Actualiza el estado y la fecha de solucion de una PQRS."""
 
     estados_validos = {
-    "Registrada": "Registrada",
-    "En proceso": "En proceso",
-    "Solucionado": "Solucionado",
+    "pendiente": "Pendiente",
+    "registrada": "Registrada",
+    "en proceso": "En proceso",
+    "solucionado": "Solucionado",
     "cerrado": "Cerrado"
 }
 
@@ -234,11 +275,10 @@ def actualizar_estado(
                     estado_normalizado
                 ]
 
-                if estado_normalizado == "resuelto":
+                if estado_normalizado == "solucionado":
                     registro["fecha_solucion"] = (
                         datetime.now().strftime("%Y-%m-%d")
                     )
-
                 encontrado = True
                 break
 
