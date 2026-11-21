@@ -20,4 +20,10 @@
 - hora_radicacion
 - fecha_solucion
 
-## Pendiente de revisión y aprobación por los cinco integrantes en la reunión de hoy. ##
+## Aprobación de la estructura de datos ##
+
+La estructura común de 19 campos fue revisada y acordada por los cinco integrantes del equipo PawQRS durante la reunión de coordinación.
+
+Esta estructura será utilizada como referencia para el desarrollo y la integración de los módulos main.py, validaciones.py, archivos.py, radicado.py y reportes.py.
+
+Cualquier modificación posterior de los nombres o tipos de datos deberá ser comunicada y acordada con el equipo para evitar incompatibilidades entre los módulos.
