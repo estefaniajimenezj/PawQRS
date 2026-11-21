@@ -20,23 +20,23 @@ def registrar_pqrs():
     datos = {
         "id": None,
 
-        "nombre_completo": input("Nombre completo: "),
+        "nombre_completo": input("Nombre completo: ").strip(),
         "tipo_documento": input("Tipo de documento (CC, TI, CE, PP, NIT): "),
-        "numero_documento": input("Numero de documento: "),
+        "numero_documento": input("Numero de documento: ").strip(),
         "tipo_telefono": input("Tipo de telefono: "),
-        "telefono_contacto": input("Telefono de contacto: "),
-        "correo_electronico": input("Correo electronico: "),
-        "direccion": input("Direccion (opcional): "),
+        "telefono_contacto": input("Telefono de contacto: ").strip(),
+        "correo_electronico": input("Correo electronico: ").strip(),
+        "direccion": input("Direccion (opcional): ").strip(),
 
         "tipo_solicitud": input(
             "Tipo de solicitud (Peticion, Queja, Reclamo, Sugerencia): "
-        ),
+        ).strip(),
 
         "fecha_radicacion": fecha_registro.strftime("%Y-%m-%d"),
 
         "canal_recepcion": input("Canal de recepcion: "),
-        "asunto_titulo": input("Asunto o titulo: "),
-        "descripcion_detallada": input("Descripcion detallada: "),
+        "asunto_titulo": input("Asunto o titulo: ").strip(),
+        "descripcion_detallada": input("Descripcion detallada: ").strip(),
         "tipo_mascota": input("Tipo de mascota (Perro o Gato): "),
         "campus_relacionado": input("Campus relacionado: "),
 
