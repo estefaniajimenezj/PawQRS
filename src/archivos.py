@@ -209,9 +209,9 @@ def actualizar_estado(
     """Actualiza el estado y la fecha de solucion de una PQRS."""
 
     estados_validos = {
-    "pendiente": "Pendiente",
-    "en proceso": "En proceso",
-    "resuelto": "Resuelto",
+    "Registrada": "Registrada",
+    "En proceso": "En proceso",
+    "Solucionado": "Solucionado",
     "cerrado": "Cerrado"
 }
 
