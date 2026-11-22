@@ -104,8 +104,8 @@ def validar_hora(hora_str: str) -> bool:
 def validar_canal(canal: str) -> bool:
     if not isinstance(canal, str):
         return False
-    canales_validos = 
-        ["presencial",
+    canales_validos = [
+        "presencial",
         "correo electronico",
         "correo electrónico",
         "pagina web",
@@ -113,7 +113,8 @@ def validar_canal(canal: str) -> bool:
         "telefono",
         "teléfono",
         "redes sociales",
-        "otro" ]
+        "otro"
+    ]
     return canal.strip().lower() in canales_validos
 
 def validar_titulo(titulo: str) -> bool:
@@ -143,8 +144,8 @@ def validar_mascota(mascota: str) -> bool:
 def validar_campus(campus: str) -> bool:
     if not isinstance(campus, str):
         return False
-    campuses_validos = 
-      [ "campus medellín - ciudad universitaria",
+    campuses_validos = [
+        "campus medellín - ciudad universitaria",
         "campus medellin - ciudad universitaria",
         "campus medellín - ciudadela robledo",
         "campus medellin - ciudadela robledo",
@@ -161,7 +162,8 @@ def validar_campus(campus: str) -> bool:
         "campus medellín - casas patrimoniales",
         "campus medellin - casas patrimoniales",
         "campus medellín - edificio de extensión",
-        "campus medellin - edificio de extension" ]
+        "campus medellin - edificio de extension" 
+    ]
     return campus.strip().lower() in campuses_validos
 
 def validar_estado(estado: str) -> bool:
