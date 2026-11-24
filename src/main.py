@@ -1,4 +1,7 @@
 from datetime import datetime, timedelta
+from validaciones import (validar_nombre, validar_tipo_documento, validar_documento, validar_tipo_telefono,
+    validar_telefono, validar_correo, validar_direccion,
+    validar_tipo_pqrs)
 
 def mostrar_menu():
     print("\nPAWQRS - GESTOR DE PQRS")
@@ -8,6 +11,89 @@ def mostrar_menu():
     print("4. Generar estadisticas")
     print("5. Salir")
 
+def solicitar_nombre():
+    while True:
+        nombre = input("Nombre completo: ").strip()
+
+        if validar_nombre(nombre):
+            return nombre
+
+        print("Nombre incorrecto.")
+        print("Debe tener entre 3 y 100 caracteres y no contener numeros.")
+
+def solicitar_tipo_documento():
+    while True:
+        tipo = input("Tipo de documento (CC, TI, CE, PP, NIT): ").strip().upper()
+
+        if validar_tipo_documento(tipo):
+            return tipo
+
+        print("Tipo de documento incorrecto.")
+        print("Opciones permitidas: CC, TI, CE, PP, NIT.")
+
+def solicitar_numero_documento():
+    while True:
+        numero = input("Numero de documento: ").strip()
+
+        if validar_documento(numero):
+            return numero
+
+        print("Numero de documento incorrecto.")
+        print("Debe contener entre 3 y 15 digitos, sin letras.")
+
+def solicitar_tipo_telefono():
+    while True:
+        tipo = input(
+            "Tipo de telefono (Celular, Fijo, Corporativo, Otro): "
+        ).strip().capitalize()
+
+        if validar_tipo_telefono(tipo):
+            return tipo
+
+        print("Tipo de telefono incorrecto.")
+        print("Opciones: Celular, Fijo, Corporativo u Otro.")
+
+def solicitar_telefono():
+    while True:
+        telefono = input("Telefono de contacto: ").strip()
+
+        if validar_telefono(telefono):
+            return telefono
+
+        print("Telefono incorrecto.")
+        print("Debe contener exactamente 10 digitos.")
+
+def solicitar_correo():
+    while True:
+        correo = input("Correo electronico: ").strip()
+
+        if validar_correo(correo):
+            return correo
+
+        print("Correo electronico incorrecto.")
+        print("Ejemplo valido: usuario@correo.com")
+
+def solicitar_direccion():
+    while True:
+        direccion = input("Direccion (opcional): ").strip()
+
+        if validar_direccion(direccion):
+            return direccion
+
+        print("Direccion incorrecta.")
+        print("Si escribes una direccion, debe tener entre 5 y 200 caracteres.")
+
+def solicitar_tipo_pqrs():
+    while True:
+        tipo = input(
+            "Tipo de solicitud (Peticion, Queja, Reclamo, Sugerencia): "
+        ).strip().capitalize()
+
+        if validar_tipo_pqrs(tipo):
+            return tipo
+
+        print("Tipo de solicitud incorrecto.")
+        print("Opciones: Peticion, Queja, Reclamo o Sugerencia.")
 
 def registrar_pqrs():
     print("\nREGISTRO DE PQRS")
@@ -20,17 +106,15 @@ def registrar_pqrs():
     datos = {
         "id": None,
 
-        "nombre_completo": input("Nombre completo: ").strip(),
-        "tipo_documento": input("Tipo de documento (CC, TI, CE, PP, NIT): "),
-        "numero_documento": input("Numero de documento: ").strip(),
-        "tipo_telefono": input("Tipo de telefono: "),
-        "telefono_contacto": input("Telefono de contacto: ").strip(),
-        "correo_electronico": input("Correo electronico: ").strip(),
-        "direccion": input("Direccion (opcional): ").strip(),
+        "nombre_completo": solicitar_nombre(),
+        "tipo_documento": solicitar_tipo_documento(),
+        "numero_documento": solicitar_numero_documento(),
+        "tipo_telefono": solicitar_tipo_telefono(),
+        "telefono_contacto": solicitar_telefono(),
+        "correo_electronico": solicitar_correo(),
+        "direccion": solicitar_direccion(),
 
-        "tipo_solicitud": input(
-            "Tipo de solicitud (Peticion, Queja, Reclamo, Sugerencia): "
-        ).strip(),
+        "tipo_solicitud": solicitar_tipo_pqrs(),
 
         "fecha_radicacion": fecha_registro.strftime("%Y-%m-%d"),
 
@@ -56,7 +140,7 @@ def registrar_pqrs():
         print(f"{campo}: {valor}")
 
     print("\nAVISO: Este registro aun NO se ha guardado.")
-    print("Falta conectar validaciones.py y archivos.py.")
+    print("Falta integrar las demas validaciones y archivos.py.")
 
 
 while True:
