@@ -1,4 +1,7 @@
 from datetime import datetime, timedelta
+from validaciones import (validar_nombre, validar_tipo_documento, validar_documento, validar_tipo_telefono,
+    validar_telefono, validar_correo, validar_direccion,
+    validar_tipo_pqrs, validar_canal, validar_titulo, validar_descripcion, validar_mascota, validar_campus)
 
 def mostrar_menu():
     print("\nPAWQRS - GESTOR DE PQRS")
@@ -7,6 +10,165 @@ def mostrar_menu():
     print("3. Actualizar estado")
     print("4. Generar estadisticas")
     print("5. Salir")
+
+def solicitar_nombre():
+    while True:
+        nombre = input("Nombre completo: ").strip()
+
+        if validar_nombre(nombre):
+            return nombre
+
+        print("Nombre incorrecto.")
+        print("Debe tener entre 3 y 100 caracteres y no contener numeros.")
+
+def solicitar_tipo_documento():
+    while True:
+        tipo = input("Tipo de documento (CC, TI, CE, PP, NIT): ").strip().upper()
+
+        if validar_tipo_documento(tipo):
+            return tipo
+
+        print("Tipo de documento incorrecto.")
+        print("Opciones permitidas: CC, TI, CE, PP, NIT.")
+
+def solicitar_numero_documento():
+    while True:
+        numero = input("Numero de documento: ").strip()
+
+        if validar_documento(numero):
+            return numero
+
+        print("Numero de documento incorrecto.")
+        print("Debe contener entre 3 y 15 digitos, sin letras.")
+
+def solicitar_tipo_telefono():
+    while True:
+        tipo = input(
+            "Tipo de telefono (Celular, Fijo, Corporativo, Otro): "
+        ).strip().capitalize()
+
+        if validar_tipo_telefono(tipo):
+            return tipo
+
+        print("Tipo de telefono incorrecto.")
+        print("Opciones: Celular, Fijo, Corporativo u Otro.")
+
+def solicitar_telefono():
+    while True:
+        telefono = input("Telefono de contacto: ").strip()
+
+        if validar_telefono(telefono):
+            return telefono
+
+        print("Telefono incorrecto.")
+        print("Debe contener exactamente 10 digitos.")
+
+def solicitar_correo():
+    while True:
+        correo = input("Correo electronico: ").strip()
+
+        if validar_correo(correo):
+            return correo
+
+        print("Correo electronico incorrecto.")
+        print("Ejemplo valido: usuario@correo.com")
+
+def solicitar_direccion():
+    while True:
+        direccion = input("Direccion (opcional): ").strip()
+
+        if validar_direccion(direccion):
+            return direccion
+
+        print("Direccion incorrecta.")
+        print("Si escribes una direccion, debe tener entre 5 y 200 caracteres.")
+
+def solicitar_tipo_pqrs():
+    while True:
+        tipo = input(
+            "Tipo de solicitud (Peticion, Queja, Reclamo, Sugerencia): "
+        ).strip().capitalize()
+
+        if validar_tipo_pqrs(tipo):
+            return tipo
+
+        print("Tipo de solicitud incorrecto.")
+        print("Opciones: Peticion, Queja, Reclamo o Sugerencia.")
+
+def solicitar_canal():
+    while True:
+        canal = input(
+            "Canal de recepcion (Presencial, Correo electronico, "
+            "Pagina web, Telefono, Redes sociales, Otro): "
+        ).strip()
+
+        if validar_canal(canal):
+            return canal.capitalize()
+
+        print("Canal de recepcion incorrecto.")
+        print("Selecciona una de las opciones permitidas.")
+
+def solicitar_titulo():
+    while True:
+        titulo = input("Asunto o titulo: ").strip()
+
+        if validar_titulo(titulo):
+            return titulo
+
+        print("Asunto o titulo incorrecto.")
+        print("Debe contener entre 5 y 150 caracteres.")
+
+def solicitar_descripcion():
+    while True:
+        descripcion = input("Descripcion detallada: ").strip()
+
+        if validar_descripcion(descripcion):
+            return descripcion
+
+        print("Descripcion incorrecta.")
+        print("Debe tener entre 20 y 2000 caracteres.")
+
+def solicitar_mascota():
+    while True:
+        mascota = input("Tipo de mascota (Perro o Gato): ").strip().capitalize()
+
+        if validar_mascota(mascota):
+            return mascota
+
+        print("Tipo de mascota incorrecto.")
+        print("Solo se permite Perro o Gato.")
+
+def solicitar_campus():
+    campus_validos = [
+        "Campus Medellín - Ciudad Universitaria",
+        "Campus Medellín - Ciudadela Robledo",
+        "Campus en el Área de la Salud",
+        "Campus Medellín - Sede de Posgrado",
+        "Campus Medellín - Edificio San Ignacio",
+        "Campus Medellín - Antigua Escuela de Derecho",
+        "Campus Medellín - Edificio Antioquia",
+        "Campus Medellín - Casas Patrimoniales",
+        "Campus Medellín - Edificio de Extensión"
+    ]
+
+    while True:
+        print("\nCampus disponibles:")
+
+        for numero, campus in enumerate(campus_validos, start=1):
+            print(f"{numero}. {campus}")
+
+        opcion = input("Selecciona un campus (1-9): ").strip()
+
+        if opcion.isdigit():
+            numero = int(opcion)
+
+            if 1 <= numero <= 9:
+                campus = campus_validos[numero - 1]
+
+                if validar_campus(campus):
+                    return campus
+
+        print("Campus incorrecto. Selecciona un numero del 1 al 9.")
 
 
 def registrar_pqrs():
@@ -20,25 +182,23 @@ def registrar_pqrs():
     datos = {
         "id": None,
 
-        "nombre_completo": input("Nombre completo: ").strip(),
-        "tipo_documento": input("Tipo de documento (CC, TI, CE, PP, NIT): "),
-        "numero_documento": input("Numero de documento: ").strip(),
-        "tipo_telefono": input("Tipo de telefono: "),
-        "telefono_contacto": input("Telefono de contacto: ").strip(),
-        "correo_electronico": input("Correo electronico: ").strip(),
-        "direccion": input("Direccion (opcional): ").strip(),
+        "nombre_completo": solicitar_nombre(),
+        "tipo_documento": solicitar_tipo_documento(),
+        "numero_documento": solicitar_numero_documento(),
+        "tipo_telefono": solicitar_tipo_telefono(),
+        "telefono_contacto": solicitar_telefono(),
+        "correo_electronico": solicitar_correo(),
+        "direccion": solicitar_direccion(),
 
-        "tipo_solicitud": input(
-            "Tipo de solicitud (Peticion, Queja, Reclamo, Sugerencia): "
-        ).strip(),
+        "tipo_solicitud": solicitar_tipo_pqrs(),
 
         "fecha_radicacion": fecha_registro.strftime("%Y-%m-%d"),
 
-        "canal_recepcion": input("Canal de recepcion: "),
-        "asunto_titulo": input("Asunto o titulo: ").strip(),
-        "descripcion_detallada": input("Descripcion detallada: ").strip(),
-        "tipo_mascota": input("Tipo de mascota (Perro o Gato): "),
-        "campus_relacionado": input("Campus relacionado: "),
+        "canal_recepcion": solicitar_canal(),
+        "asunto_titulo": solicitar_titulo(),
+        "descripcion_detallada": solicitar_descripcion(),
+        "tipo_mascota": solicitar_mascota(),
+        "campus_relacionado": solicitar_campus(),
 
         "fecha_maxima_respuesta": (
             fecha_registro + timedelta(days=30)
@@ -56,7 +216,7 @@ def registrar_pqrs():
         print(f"{campo}: {valor}")
 
     print("\nAVISO: Este registro aun NO se ha guardado.")
-    print("Falta conectar validaciones.py y archivos.py.")
+    print("Falta integrar las demas validaciones y archivos.py.")
 
 
 while True:
