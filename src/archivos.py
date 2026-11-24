@@ -39,7 +39,8 @@ TIPOS_PQRS = {
 
 ESTADOS_VALIDOS = {
     "registrada": "Registrada",
-    "en proceso": "En proceso"
+    "en proceso": "En proceso",
+    "solucionada": "Solucionada"
 }
 
 
@@ -210,8 +211,8 @@ def guardar_registro(datos: dict) -> bool:
         if not estado:
             estado = "registrada"
 
-        if estado not in ESTADOS_VALIDOS:
-            print("[ERROR] El estado indicado no es valido.")
+        if estado != "registrada":
+            print("[ERROR] Toda PQRS nueva debe empezar en estado Registrada.")
             return False
 
         registro["estado_peticion"] = ESTADOS_VALIDOS[estado]
@@ -344,9 +345,22 @@ def actualizar_estado(
 
             if registro.get("radicado") == radicado:
 
-                registro["estado_peticion"] = ESTADOS_VALIDOS[
-                    estado_normalizado
-                ]
+                estado_actual = normalizar_texto(
+                    registro.get("estado_peticion", "")
+                )
+                transiciones = {
+                    "registrada": "en proceso",
+                    "en proceso": "solucionada"
+                }
+
+                if transiciones.get(estado_actual) != estado_normalizado:
+                    print("[ERROR] Transicion de estado no permitida.")
+                    return False
+
+                registro["estado_peticion"] = ESTADOS_VALIDOS[estado_normalizado]
+
+                if estado_normalizado == "solucionada":
+                    registro["fecha_solucion"] = datetime.now().strftime("%Y-%m-%d")
 
                 encontrado = True
                 break
