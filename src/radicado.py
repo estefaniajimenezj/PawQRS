@@ -1,5 +1,3 @@
-def generar_comprobante(datos):
-
 from pathlib import Path
 import textwrap
 import unicodedata
