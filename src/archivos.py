@@ -39,7 +39,8 @@ TIPOS_PQRS = {
 
 ESTADOS_VALIDOS = {
     "registrada": "Registrada",
-    "en proceso": "En proceso"
+    "en proceso": "En proceso",
+    "solucionada": "Solucionada"
 }
 
 
@@ -213,12 +214,15 @@ def guardar_registro(datos: dict) -> bool:
         if estado not in ESTADOS_VALIDOS:
             print("[ERROR] El estado indicado no es valido.")
             return False
+            
+        if estado != "registrada":
+            print("[ERROR] Toda PQRS nueva debe empezar en estado Registrada.")
+            return False 
 
         registro["estado_peticion"] = ESTADOS_VALIDOS[estado]
-
-        # Fecha de solucion vacia inicialmente
-        if not registro["fecha_solucion"]:
-            registro["fecha_solucion"] = ""
+        
+        # Toda PQRS nueva inicia sin fecha de solucion
+        registro["fecha_solucion"] = ""
 
         # Guardar registro
         with open(
@@ -317,23 +321,21 @@ def buscar_por_radicado(
 # ACTUALIZAR ESTADO DE UNA PQRS
 # ==========================================
 
+
 def actualizar_estado(
     tipo_pqrs: str,
     radicado: str,
     nuevo_estado: str
 ) -> bool:
-    """Actualiza el estado de una PQRS."""
+    """Actualiza el estado de una PQRS """
 
     estado_normalizado = normalizar_texto(nuevo_estado)
 
     if estado_normalizado not in ESTADOS_VALIDOS:
-
         print("[ERROR] El estado indicado no es valido.")
-
         return False
 
     try:
-
         ruta_archivo = obtener_ruta_archivo(tipo_pqrs)
 
         registros = leer_registros(tipo_pqrs)
@@ -344,20 +346,43 @@ def actualizar_estado(
 
             if registro.get("radicado") == radicado:
 
+                # Obtener el estado actual
+                estado_actual = normalizar_texto(
+                    registro.get("estado_peticion", "")
+                )
+
+                # Definir transiciones permitidas
+                transiciones = {
+                    "registrada": "en proceso",
+                    "en proceso": "solucionada"
+                }
+
+                # Validar transicion
+                if transiciones.get(estado_actual) != estado_normalizado:
+                    print("[ERROR] Transicion de estado no permitida.")
+                    return False
+
+                # Actualizar estado
                 registro["estado_peticion"] = ESTADOS_VALIDOS[
                     estado_normalizado
                 ]
+
+                # Registrar fecha de solucion
+                if estado_normalizado == "solucionada":
+                    registro["fecha_solucion"] = datetime.now().strftime(
+                        "%Y-%m-%d %H:%M:%S"
+                    )
+                else:
+                    registro["fecha_solucion"] = ""
 
                 encontrado = True
                 break
 
         if not encontrado:
-
             print("[ERROR] No se encontro el radicado.")
-
             return False
 
-        # Guardar cambios
+        # Guardar cambios en el archivo
         with open(
             ruta_archivo,
             mode="w",
@@ -365,21 +390,16 @@ def actualizar_estado(
         ) as archivo:
 
             for registro in registros:
-
                 archivo.write(
                     json.dumps(registro, ensure_ascii=False) + "\n"
                 )
 
         print("[EXITO] Estado actualizado correctamente.")
-
         return True
 
     except (OSError, ValueError) as error:
-
         print(f"[ERROR] No se pudo actualizar: {error}")
-
         return False
-
 
 # ==========================================
 # GUARDAR ACTAS DE REUNIONES
