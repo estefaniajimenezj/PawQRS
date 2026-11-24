@@ -1,4 +1,7 @@
 from datetime import datetime, timedelta
+from archivos import guardar_registro, leer_registros, buscar_por_radicado, actualizar_estado
+from radicado import generar_comprobante
+from reportes import mostrar_estadisticas
 from validaciones import (validar_nombre, validar_tipo_documento, validar_documento, validar_tipo_telefono,
     validar_telefono, validar_correo, validar_direccion,
     validar_tipo_pqrs, validar_canal, validar_titulo, validar_descripcion, validar_mascota, validar_campus)
@@ -209,36 +212,72 @@ def registrar_pqrs():
         "fecha_solucion": ""
     }
 
-    # Mostrar lo capturado para verificar los datos
-    print("\nDATOS CAPTURADOS (PRUEBA)")
+    if guardar_registro(datos):
+        registros = leer_registros(datos["tipo_solicitud"])
+        if registros:
+            registro = registros[-1]
+            print("PQRS registrada:", registro["radicado"])
+            try:
+                generar_comprobante(registro)
+            except (OSError, ValueError, KeyError, TypeError) as error:
+                print("PQRS guardada, pero no se pudo generar comprobante:", error)
+    else:
+        print("No fue posible guardar la PQRS.")
 
-    for campo, valor in datos.items():
+
+def consultar_pqrs():
+    tipo = solicitar_tipo_pqrs()
+    radicado = input("Radicado a consultar (ej. QUE-0001): ").strip().upper()
+    registro = buscar_por_radicado(tipo, radicado)
+    if registro is None:
+        print("No se encontro la PQRS.")
+        return
+
+    for campo, valor in registro.items():
         print(f"{campo}: {valor}")
 
-    print("\nAVISO: Este registro aun NO se ha guardado.")
-    print("Falta integrar las demas validaciones y archivos.py.")
 
+def cambiar_estado_pqrs():
+    tipo = solicitar_tipo_pqrs()
+    radicado = input("Radicado a actualizar: ").strip().upper()
+    registro = buscar_por_radicado(tipo, radicado)
+    if registro is None:
+        print("No se encontro la PQRS.")
+        return
 
-while True:
-    mostrar_menu()
+    transiciones = {"Registrada": "En proceso", "En proceso": "Solucionada"}
+    actual = registro.get("estado_peticion", "")
+    siguiente = transiciones.get(actual)
+    if siguiente is None:
+        print("La PQRS ya esta solucionada o tiene un estado no valido.")
+        return
 
-    opcion = input("Seleccione una opcion: ")
-
-    if opcion == "1":
-        registrar_pqrs()
-
-    elif opcion == "2":
-        print("Consulta de PQRS - Pendiente de integrar")
-
-    elif opcion == "3":
-        print("Actualizacion de estado - Pendiente de integrar")
-
-    elif opcion == "4":
-        print("Estadisticas - Pendiente de integrar")
-
-    elif opcion == "5":
-        print("Saliendo de PawQRS...")
-        break
-
+    print(f"Estado actual: {actual}. Siguiente estado: {siguiente}.")
+    if input("Confirmar cambio (S/N): ").strip().lower() == "s":
+        actualizar_estado(tipo, radicado, siguiente)
     else:
-        print("Opcion no valida. Intente nuevamente.")
+        print("Cambio cancelado.")
+
+
+def iniciar_programa():
+    while True:
+        mostrar_menu()
+        opcion = input("Seleccione una opcion: ").strip()
+
+        if opcion == "1":
+            registrar_pqrs()
+        elif opcion == "2":
+            consultar_pqrs()
+        elif opcion == "3":
+            cambiar_estado_pqrs()
+        elif opcion == "4":
+            mostrar_estadisticas()
+        elif opcion == "5":
+            print("Saliendo de PawQRS...")
+            break
+        else:
+            print("Opcion no valida. Intente nuevamente.")
+
+
+if __name__ == "__main__":
+    iniciar_programa()
