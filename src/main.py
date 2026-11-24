@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from validaciones import (validar_nombre, validar_tipo_documento, validar_documento, validar_tipo_telefono,
     validar_telefono, validar_correo, validar_direccion,
-    validar_tipo_pqrs, validar_canal, validar_titulo, validar_descripcion, validar_mascota)
+    validar_tipo_pqrs, validar_canal, validar_titulo, validar_descripcion, validar_mascota, validar_campus)
 
 def mostrar_menu():
     print("\nPAWQRS - GESTOR DE PQRS")
@@ -138,6 +138,38 @@ def solicitar_mascota():
         print("Tipo de mascota incorrecto.")
         print("Solo se permite Perro o Gato.")
 
+def solicitar_campus():
+    campus_validos = [
+        "Campus Medellín - Ciudad Universitaria",
+        "Campus Medellín - Ciudadela Robledo",
+        "Campus en el Área de la Salud",
+        "Campus Medellín - Sede de Posgrado",
+        "Campus Medellín - Edificio San Ignacio",
+        "Campus Medellín - Antigua Escuela de Derecho",
+        "Campus Medellín - Edificio Antioquia",
+        "Campus Medellín - Casas Patrimoniales",
+        "Campus Medellín - Edificio de Extensión"
+    ]
+
+    while True:
+        print("\nCampus disponibles:")
+
+        for numero, campus in enumerate(campus_validos, start=1):
+            print(f"{numero}. {campus}")
+
+        opcion = input("Selecciona un campus (1-9): ").strip()
+
+        if opcion.isdigit():
+            numero = int(opcion)
+
+            if 1 <= numero <= 9:
+                campus = campus_validos[numero - 1]
+
+                if validar_campus(campus):
+                    return campus
+
+        print("Campus incorrecto. Selecciona un numero del 1 al 9.")
+
 
 def registrar_pqrs():
     print("\nREGISTRO DE PQRS")
@@ -166,7 +198,7 @@ def registrar_pqrs():
         "asunto_titulo": solicitar_titulo(),
         "descripcion_detallada": solicitar_descripcion(),
         "tipo_mascota": solicitar_mascota(),
-        "campus_relacionado": input("Campus relacionado: "),
+        "campus_relacionado": solicitar_campus(),
 
         "fecha_maxima_respuesta": (
             fecha_registro + timedelta(days=30)
