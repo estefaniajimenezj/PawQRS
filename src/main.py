@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from validaciones import (validar_nombre, validar_tipo_documento, validar_documento, validar_tipo_telefono,
     validar_telefono, validar_correo, validar_direccion,
-    validar_tipo_pqrs)
+    validar_tipo_pqrs, validar_canal)
 
 def mostrar_menu():
     print("\nPAWQRS - GESTOR DE PQRS")
@@ -95,6 +95,20 @@ def solicitar_tipo_pqrs():
         print("Tipo de solicitud incorrecto.")
         print("Opciones: Peticion, Queja, Reclamo o Sugerencia.")
 
+def solicitar_canal():
+    while True:
+        canal = input(
+            "Canal de recepcion (Presencial, Correo electronico, "
+            "Pagina web, Telefono, Redes sociales, Otro): "
+        ).strip()
+
+        if validar_canal(canal):
+            return canal.capitalize()
+
+        print("Canal de recepcion incorrecto.")
+        print("Selecciona una de las opciones permitidas.")
+
+
 def registrar_pqrs():
     print("\nREGISTRO DE PQRS")
 
@@ -118,7 +132,7 @@ def registrar_pqrs():
 
         "fecha_radicacion": fecha_registro.strftime("%Y-%m-%d"),
 
-        "canal_recepcion": input("Canal de recepcion: "),
+        "canal_recepcion": solicitar_canal(),
         "asunto_titulo": input("Asunto o titulo: ").strip(),
         "descripcion_detallada": input("Descripcion detallada: ").strip(),
         "tipo_mascota": input("Tipo de mascota (Perro o Gato): "),
