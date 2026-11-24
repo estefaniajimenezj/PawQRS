@@ -124,7 +124,7 @@ def calcular_promedio_respuesta(registros):
             )
 
             fecha_fin = datetime.strptime(
-                registro["fecha_solucion"], "%Y-%m-%d"
+                registro["fecha_solucion"][:10], "%Y-%m-%d"
             )
 
             dias = (fecha_fin - fecha_inicio).days
