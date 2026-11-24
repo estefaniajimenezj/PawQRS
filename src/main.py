@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from validaciones import (validar_nombre, validar_tipo_documento, validar_documento, validar_tipo_telefono,
     validar_telefono, validar_correo, validar_direccion,
-    validar_tipo_pqrs, validar_canal, validar_titulo, validar_descripcion)
+    validar_tipo_pqrs, validar_canal, validar_titulo, validar_descripcion, validar_mascota)
 
 def mostrar_menu():
     print("\nPAWQRS - GESTOR DE PQRS")
@@ -128,6 +128,17 @@ def solicitar_descripcion():
         print("Descripcion incorrecta.")
         print("Debe tener entre 20 y 2000 caracteres.")
 
+def solicitar_mascota():
+    while True:
+        mascota = input("Tipo de mascota (Perro o Gato): ").strip().capitalize()
+
+        if validar_mascota(mascota):
+            return mascota
+
+        print("Tipo de mascota incorrecto.")
+        print("Solo se permite Perro o Gato.")
+
+
 def registrar_pqrs():
     print("\nREGISTRO DE PQRS")
 
@@ -154,7 +165,7 @@ def registrar_pqrs():
         "canal_recepcion": solicitar_canal(),
         "asunto_titulo": solicitar_titulo(),
         "descripcion_detallada": solicitar_descripcion(),
-        "tipo_mascota": input("Tipo de mascota (Perro o Gato): "),
+        "tipo_mascota": solicitar_mascota(),
         "campus_relacionado": input("Campus relacionado: "),
 
         "fecha_maxima_respuesta": (
