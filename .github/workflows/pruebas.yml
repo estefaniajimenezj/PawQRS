@@ -18,7 +18,7 @@ jobs:
           python-version: "3.12"
 
       - name: Comprobar sintaxis
-        run: python -m py_compile src/archivos.py
+        run: python -m py_compile src/*.py
 
       - name: Ejecutar pruebas
         run: python src/pruebas_archivos.py
