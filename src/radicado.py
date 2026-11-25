@@ -61,6 +61,7 @@ def generar_comprobante(datos):
         borde]
 
     campos = [
+        ("ID de registro", datos["id"]),
         ("Radicado", radicado),
         ("Tipo de solicitud", tipo),
         ("Fecha de radicacion", datos["fecha_radicacion"]),
