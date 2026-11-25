@@ -173,7 +173,7 @@ def obtener_pqrs_antiguas(registros):
         if contador < 5:
 
             print(
-                "ID:", registro["id"],
+                "Radicado:", registro["radicado"],
                 "Fecha:", registro["fecha_radicacion"]
             )
 
