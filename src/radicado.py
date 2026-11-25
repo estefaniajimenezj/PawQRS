@@ -18,6 +18,9 @@ def fila(texto=""):
     texto = texto_ascii(texto)
     return "| " + texto.ljust(ANCHO - 4) + " |"
 
+def fila_centrada(texto=""):
+    texto = texto_ascii(texto)
+    return "| " + texto.center(ANCHO - 4) + " |"
 
 def filas_campo(etiqueta, valor):
     contenido = f"{etiqueta}: {valor}"
@@ -57,8 +60,8 @@ def generar_comprobante(datos):
     borde = "+" + "-" * (ANCHO - 2) + "+"
 
     lineas = [borde,
-        fila("PAWQRS - GESTOR DE PQRS"),
-        fila("COMPROBANTE DE RADICACION PQRS"),
+        fila_centrada("PAWQRS - GESTOR DE PQRS"),
+        fila_centrada("COMPROBANTE DE RADICACION PQRS"),
         borde]
 
     campos = [
