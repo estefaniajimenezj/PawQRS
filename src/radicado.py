@@ -57,6 +57,7 @@ def generar_comprobante(datos):
     borde = "+" + "-" * (ANCHO - 2) + "+"
 
     lineas = [borde,
+        fila("PAWQRS - GESTOR DE PQRS"),
         fila("COMPROBANTE DE RADICACION PQRS"),
         borde]
 
