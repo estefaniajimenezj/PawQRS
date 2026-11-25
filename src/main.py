@@ -117,16 +117,29 @@ def solicitar_direccion():
         print("Si escribes una direccion, debe tener entre 5 y 200 caracteres.")
 
 def solicitar_tipo_pqrs():
+    opciones = {
+        "1": "Peticion",
+        "2": "Queja",
+        "3": "Reclamo",
+        "4": "Sugerencia"
+    }
+
     while True:
-        tipo = input(
-            "Tipo de solicitud (Peticion, Queja, Reclamo, Sugerencia): "
-        ).strip().capitalize()
+        print("\nTIPO DE SOLICITUD")
+        print("1. Peticion")
+        print("2. Queja")
+        print("3. Reclamo")
+        print("4. Sugerencia")
 
-        if validar_tipo_pqrs(tipo):
-            return tipo
+        opcion = input("Seleccione una opcion (1-4): ").strip()
 
-        print("Tipo de solicitud incorrecto.")
-        print("Opciones: Peticion, Queja, Reclamo o Sugerencia.")
+        if opcion in opciones:
+            tipo = opciones[opcion]
+
+            if validar_tipo_pqrs(tipo):
+                return tipo
+
+        print("Opcion incorrecta. Selecciona un numero del 1 al 4.")
 
 def solicitar_canal():
     opciones = {
