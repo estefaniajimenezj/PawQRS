@@ -310,6 +310,8 @@ def consultar_pqrs():
 
         print(f"{campo}: {valor}")
 
+    if input("¿Mostrar comprobante? (S/N): ").strip().lower() == "s":
+        generar_comprobante(registro)
 
 def cambiar_estado_pqrs():
     tipo = solicitar_tipo_pqrs()
