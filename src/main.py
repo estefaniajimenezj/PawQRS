@@ -305,6 +305,9 @@ def consultar_pqrs():
         return
 
     for campo, valor in registro.items():
+        if campo == "direccion" and not valor:
+            valor = "N/A"
+
         print(f"{campo}: {valor}")
 
 
