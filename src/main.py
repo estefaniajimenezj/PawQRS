@@ -25,14 +25,31 @@ def solicitar_nombre():
         print("Debe tener entre 3 y 100 caracteres y no contener numeros.")
 
 def solicitar_tipo_documento():
+    opciones = {
+        "1": "CC",
+        "2": "TI",
+        "3": "CE",
+        "4": "PP",
+        "5": "NIT"
+    }
+
     while True:
-        tipo = input("Tipo de documento (CC, TI, CE, PP, NIT): ").strip().upper()
+        print("\nTIPO DE DOCUMENTO")
+        print("1. CC")
+        print("2. TI")
+        print("3. CE")
+        print("4. PP")
+        print("5. NIT")
 
-        if validar_tipo_documento(tipo):
-            return tipo
+        opcion = input("Seleccione una opcion (1-5): ").strip()
 
-        print("Tipo de documento incorrecto.")
-        print("Opciones permitidas: CC, TI, CE, PP, NIT.")
+        if opcion in opciones:
+            tipo = opciones[opcion]
+
+            if validar_tipo_documento(tipo):
+                return tipo
+
+        print("Opcion incorrecta. Selecciona un numero del 1 al 5.")
 
 def solicitar_numero_documento():
     while True:
@@ -139,7 +156,7 @@ def solicitar_canal():
                 return canal
 
         print("Opcion incorrecta. Selecciona un numero del 1 al 6.")
-        
+
 def solicitar_titulo():
     while True:
         titulo = input("Asunto o titulo: ").strip()
