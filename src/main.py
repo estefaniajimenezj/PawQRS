@@ -132,14 +132,25 @@ def solicitar_descripcion():
         print("Debe tener entre 20 y 2000 caracteres.")
 
 def solicitar_mascota():
+    opciones = {
+        "1": "Perro",
+        "2": "Gato"
+    }
+
     while True:
-        mascota = input("Tipo de mascota (Perro o Gato): ").strip().capitalize()
+        print("\nTIPO DE MASCOTA")
+        print("1. Perro")
+        print("2. Gato")
 
-        if validar_mascota(mascota):
-            return mascota
+        opcion = input("Seleccione una opcion (1-2): ").strip()
 
-        print("Tipo de mascota incorrecto.")
-        print("Solo se permite Perro o Gato.")
+        if opcion in opciones:
+            mascota = opciones[opcion]
+
+            if validar_mascota(mascota):
+                return mascota
+
+        print("Opcion incorrecta. Selecciona 1 o 2.") 
 
 def solicitar_campus():
     campus_validos = [
