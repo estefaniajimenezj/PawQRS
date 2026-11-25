@@ -112,18 +112,34 @@ def solicitar_tipo_pqrs():
         print("Opciones: Peticion, Queja, Reclamo o Sugerencia.")
 
 def solicitar_canal():
+    opciones = {
+        "1": "Presencial",
+        "2": "Correo electrónico",
+        "3": "Página web",
+        "4": "Teléfono",
+        "5": "Redes sociales",
+        "6": "Otro"
+    }
+
     while True:
-        canal = input(
-            "Canal de recepcion (Presencial, Correo electronico, "
-            "Pagina web, Telefono, Redes sociales, Otro): "
-        ).strip()
+        print("\nCANAL DE RECEPCION")
+        print("1. Presencial")
+        print("2. Correo electrónico")
+        print("3. Página web")
+        print("4. Teléfono")
+        print("5. Redes sociales")
+        print("6. Otro")
 
-        if validar_canal(canal):
-            return canal.capitalize()
+        opcion = input("Seleccione una opcion (1-6): ").strip()
 
-        print("Canal de recepcion incorrecto.")
-        print("Selecciona una de las opciones permitidas.")
+        if opcion in opciones:
+            canal = opciones[opcion]
 
+            if validar_canal(canal):
+                return canal
+
+        print("Opcion incorrecta. Selecciona un numero del 1 al 6.")
+        
 def solicitar_titulo():
     while True:
         titulo = input("Asunto o titulo: ").strip()
