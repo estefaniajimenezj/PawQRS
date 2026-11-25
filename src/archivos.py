@@ -9,6 +9,7 @@ import json
 import csv
 import unicodedata
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 
 # ==========================================
@@ -369,7 +370,7 @@ def actualizar_estado(
 
                 # Registrar fecha de solucion
                 if estado_normalizado == "solucionada":
-                    registro["fecha_solucion"] = datetime.now().strftime(
+                    registro["fecha_solucion"] = datetime.now(ZoneInfo("America/Bogota")).strftime(
                         "%Y-%m-%d %H:%M:%S"
                     )
                 else:

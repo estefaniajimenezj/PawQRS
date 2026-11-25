@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+from zoneinfo import ZoneInfo
 from archivos import guardar_registro, leer_registros, buscar_por_radicado, actualizar_estado
 from radicado import generar_comprobante
 from reportes import mostrar_estadisticas
@@ -248,7 +249,7 @@ def registrar_pqrs():
     print("\nREGISTRO DE PQRS")
 
     # Obtener la fecha y hora actual
-    ahora = datetime.now()
+    ahora = datetime.now(ZoneInfo("America/Bogota"))
     fecha_registro = ahora.date()
 
     # Capturar los datos del solicitante y la solicitud
