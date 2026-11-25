@@ -45,16 +45,29 @@ def solicitar_numero_documento():
         print("Debe contener entre 3 y 15 digitos, sin letras.")
 
 def solicitar_tipo_telefono():
+    opciones = {
+        "1": "Celular",
+        "2": "Fijo",
+        "3": "Corporativo",
+        "4": "Otro"
+    }
+
     while True:
-        tipo = input(
-            "Tipo de telefono (Celular, Fijo, Corporativo, Otro): "
-        ).strip().capitalize()
+        print("\nTIPO DE TELEFONO")
+        print("1. Celular")
+        print("2. Fijo")
+        print("3. Corporativo")
+        print("4. Otro")
 
-        if validar_tipo_telefono(tipo):
-            return tipo
+        opcion = input("Seleccione una opcion (1-4): ").strip()
 
-        print("Tipo de telefono incorrecto.")
-        print("Opciones: Celular, Fijo, Corporativo u Otro.")
+        if opcion in opciones:
+            tipo = opciones[opcion]
+
+            if validar_tipo_telefono(tipo):
+                return tipo
+
+        print("Opcion incorrecta. Selecciona un numero del 1 al 4.")
 
 def solicitar_telefono():
     while True:
