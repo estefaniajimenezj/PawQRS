@@ -449,5 +449,7 @@ Los documentos de soporte de **PawQRS** se encuentran almacenados en la carpeta 
 | Actas de Entendimiento, Colaboración y Responsabilidad | 🟢 Firmadas |
 | Cronograma y Diagrama de Gantt | 🟢 Elaborado |
 | Presupuesto del proyecto | 🟢 Elaborado |
+| [Manual de usuario](docs/Manual_de_usuario.md) | 🟢 Elaborado |
+| [Revisión de validaciones](docs/Revision_validaciones.md) | 🟢 Elaborada |
 
 ---
