@@ -229,11 +229,13 @@ Cuando el registro se guarda correctamente, el sistema informa que la solicitud 
 
 **Figura 2. Registro de una PQRS**
 
-*Insertar una captura real del proceso de registro, utilizando información ficticia.*
+![Inicio del registro de una PQRS](capturas/manual_registro.png)
 
 **Figura 3. Comprobante de registro**
 
-*Insertar una captura real del comprobante generado por el sistema, sin mostrar información personal verdadera.*
+![Primera parte del comprobante de radicación](capturas/manual_comprobante_1.png)
+
+![Segunda parte del comprobante de radicación](capturas/manual_comprobante_2.png)
 
 ## 5. Opción 2: Consultar una PQRS
 
@@ -266,7 +268,7 @@ No se encontro la PQRS.
 
 **Figura 4. Consulta de una PQRS**
 
-*Insertar una captura real de una consulta exitosa y de la pregunta para mostrar el comprobante.*
+![Consulta exitosa de una PQRS](capturas/manual_consulta.png)
 
 ## 6. Opción 3: Actualizar el estado de una PQRS
 
@@ -296,7 +298,7 @@ Cuando una solicitud pasa al estado Solucionada, se registra automáticamente su
 
 **Figura 5. Actualización del estado de una PQRS**
 
-*Insertar una captura real de una actualización confirmada.*
+![Actualización del estado de una PQRS](capturas/manual_actualizacion.png)
 
 ## 7. Opción 4: Generar estadísticas
 
@@ -351,7 +353,7 @@ Si todavía no existen solicitudes almacenadas, el programa muestra un mensaje i
 
 **Figura 6. Estadísticas de PawQRS**
 
-*Insertar una captura real de las estadísticas obtenidas con registros ficticios o con datos de prueba autorizados por el equipo.*
+![Estadísticas de PawQRS](capturas/manual_estadisticas.png)
 
 ## 8. Opción 5: Salir del programa
 
