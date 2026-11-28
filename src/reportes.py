@@ -136,7 +136,7 @@ def calcular_promedio_respuesta(registros):
 
         promedio = total_dias / cantidad
 
-        print("Promedio de dias de respuesta:", promedio)
+        print("Promedio de dias de respuesta:", round(promedio))
 
     else:
         print("No hay PQRS solucionadas.")
