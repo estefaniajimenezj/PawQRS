@@ -50,7 +50,7 @@ def contar_por_tipo(registros):
 
     for registro in registros:
 
-        if registro["tipo_solicitud"] == "Petición":
+        if registro["tipo_solicitud"].strip().lower() in ("petición", "peticion"):
             peticiones += 1
 
         elif registro["tipo_solicitud"] == "Queja":
@@ -67,7 +67,7 @@ def contar_por_tipo(registros):
     print("Cantidad de Reclamos:", reclamos)
     print("Cantidad de Sugerencias:", sugerencias)
 
-contar_por_tipo(registros_prueba)
+
 
 def contar_por_mascota(registros):
 
@@ -85,7 +85,7 @@ def contar_por_mascota(registros):
     print("Cantidad de Perros:", perros)
     print("Cantidad de Gatos:", gatos)
 
-contar_por_mascota(registros_prueba)
+
 
 def contar_por_estado(registros):
 
@@ -108,7 +108,7 @@ def contar_por_estado(registros):
     print("PQRS En proceso:", en_proceso)
     print("PQRS Solucionadas:", solucionadas)
 
-contar_por_estado(registros_prueba)
+
 
 def calcular_promedio_respuesta(registros):
 
@@ -124,7 +124,7 @@ def calcular_promedio_respuesta(registros):
             )
 
             fecha_fin = datetime.strptime(
-                registro["fecha_solucion"], "%Y-%m-%d"
+                registro["fecha_solucion"][:10], "%Y-%m-%d"
             )
 
             dias = (fecha_fin - fecha_inicio).days
@@ -136,13 +136,13 @@ def calcular_promedio_respuesta(registros):
 
         promedio = total_dias / cantidad
 
-        print("Promedio de dias de respuesta:", promedio)
+        print("Promedio de dias de respuesta:", round(promedio))
 
     else:
         print("No hay PQRS solucionadas.")
 
 
-calcular_promedio_respuesta(registros_prueba)
+
 
 def obtener_pqrs_antiguas(registros):
 
@@ -173,13 +173,13 @@ def obtener_pqrs_antiguas(registros):
         if contador < 5:
 
             print(
-                "ID:", registro["id"],
+                "Radicado:", registro["radicado"],
                 "Fecha:", registro["fecha_radicacion"]
             )
 
             contador += 1
 
-obtener_pqrs_antiguas(registros_prueba)
+
 
 def clasificar_vencimientos(registros):
 
@@ -205,4 +205,26 @@ def clasificar_vencimientos(registros):
     print("PQRS proximas a vencer:", proximas)
     print("PQRS vencidas:", vencidas)
 
-clasificar_vencimientos(registros_prueba)
+
+
+
+def cargar_registros_reales():
+    from archivos import leer_registros
+    registros = []
+    for tipo in ("Peticion", "Queja", "Reclamo", "Sugerencia"):
+        registros.extend(leer_registros(tipo))
+    return registros
+
+
+def mostrar_estadisticas():
+    registros = cargar_registros_reales()
+    print("\nESTADISTICAS DE PAWQRS")
+    if not registros:
+        print("Todavia no hay solicitudes registradas.")
+        return
+    contar_por_tipo(registros)
+    contar_por_mascota(registros)
+    contar_por_estado(registros)
+    calcular_promedio_respuesta(registros)
+    obtener_pqrs_antiguas(registros)
+    clasificar_vencimientos(registros)
